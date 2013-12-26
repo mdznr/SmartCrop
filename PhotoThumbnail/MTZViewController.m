@@ -39,7 +39,7 @@
 - (IBAction)didTapActionButton:(id)sender
 {
 	// Create action sheet with title
-	MTZActionSheet *as = [[MTZActionSheet alloc] initWithTitle:@"Change the Photo's Aspect Ratio"];
+	MTZActionSheet *as = [[MTZActionSheet alloc] initWithTitle:@"Change the Thumbnail's Aspect Ratio"];
 	
 	// Add buttons to action sheet
 	[as addButtonWithTitle:@"Original" andBlock:^{
@@ -72,7 +72,7 @@
 	as.cancelButtonTitle = @"Cancel";
 	
 	// Show action sheet
-	[as showFromToolbar:self.toolbar];
+	[as showFromBarButtonItem:sender animated:YES];
 }
 
 #pragma mark Change Aspect Ratio
@@ -80,9 +80,11 @@
 {
 	// Handle Original
 	if ( CGSizeEqualToSize(aspectRatio, CGSizeZero) ) {
-#warning Handle Original Aspect Ratio
+#warning TODO: Handle Original Aspect Ratio
 		return;
 	}
+	
+#warning TODO: Handle Aspect Ratio Change
 	
 	NSLog(@"%@", NSStringFromCGSize(aspectRatio));
 }

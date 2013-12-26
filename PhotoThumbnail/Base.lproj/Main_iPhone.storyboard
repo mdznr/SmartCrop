@@ -22,7 +22,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="XPo-Nn-Wlc" userLabel="Flexible Space"/>
-                                    <barButtonItem systemItem="camera" id="0gz-W0-D1t" userLabel="Camera">
+                                    <barButtonItem systemItem="camera" id="0gz-W0-D1t" userLabel="Photos">
                                         <connections>
                                             <action selector="didTapPhotosButton:" destination="3Vz-fJ-Ze2" id="C6D-iz-G7P"/>
                                         </connections>
