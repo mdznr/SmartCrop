@@ -17,7 +17,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+	// Title
+	self.title = @"Thumbnails";
+	
+	// Image Picker Navigation Item
+	UIBarButtonItem *photos = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(didTapPhotosButton:)];
+	self.navigationItem.rightBarButtonItem = photos;
+	
+	// Show Navigation Bar
+	self.navigationController.navigationBarHidden = NO;
+}
+
+// Present Image Picker View Controller
+- (void)didTapPhotosButton:(id)sender
+{
+	UIImagePickerController *imgPicker = [[UIImagePickerController alloc] init];
+	[self presentViewController:imgPicker animated:YES completion:^{}];
 }
 
 - (void)didReceiveMemoryWarning
