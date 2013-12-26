@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#warning this typedef probably shouldn't be defined here. It should come from MTZAction?
 typedef void (^Block)();
 
 @protocol MTZActionSheetDelegate;
@@ -50,21 +49,25 @@ NS_CLASS_AVAILABLE_IOS(2_0) @interface MTZActionSheet : NSObject
 
 /// An ordered (top to bottom) array of the button titles.
 /// Includes @c cancelButtonTitle and @c destructiveButtonTitle, if set.
-- (NSArray *)buttonTitles;
+@property (nonatomic, readonly) NSArray *buttonTitles;
 
 /// An ordered array of the button titles.
 /// Does not include @c cancelButtonTitle and @c destructiveButtonTitle.
-- (NSArray *)otherButtonTitles;
+@property (nonatomic, readonly) NSArray *otherButtonTitles;
 
+/*
 #warning do we even need this API?
 /// The total number of buttons on the action sheet.
 /// Includes cancel and destructive buttons, if set.
 - (NSUInteger)numberOfButtons;
+ */
 
+/*
 #warning do we even need this API?
 /// The number of buttons on the action sheet.
 /// Does not include cancel and destructive buttons.
 - (NSUInteger)numberOfOtherButtons;
+ */
 
 
 #pragma mark Configuring Buttons

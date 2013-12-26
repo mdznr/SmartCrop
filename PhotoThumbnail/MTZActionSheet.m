@@ -15,8 +15,8 @@
 
 @property (strong, nonatomic) UIActionSheet *actionSheet;
 
-@property (strong, nonatomic) NSMutableArray *buttonTitles;
-@property (strong, nonatomic) NSMutableDictionary *actionsForButtonTitles;
+@property (strong, nonatomic) NSMutableArray *_buttonTitles;
+@property (strong, nonatomic) NSMutableDictionary *_actionsForButtonTitles;
 
 @end
 
@@ -46,8 +46,8 @@
 
 - (void)setup
 {
-	_buttonTitles = [[NSMutableArray alloc] initWithCapacity:4];
-	_actionsForButtonTitles = [[NSMutableDictionary alloc] initWithCapacity:4];
+	__buttonTitles = [[NSMutableArray alloc] initWithCapacity:4];
+	__actionsForButtonTitles = [[NSMutableDictionary alloc] initWithCapacity:4];
 }
 
 
@@ -55,7 +55,7 @@
 
 - (NSArray *)buttonTitles
 {
-	NSMutableArray *titles = [NSMutableArray arrayWithArray:_buttonTitles];
+	NSMutableArray *titles = [NSMutableArray arrayWithArray:__buttonTitles];
 	if ( _destructiveButtonTitle ) {
 		[titles insertObject:_destructiveButtonTitle atIndex:0];
 	}
@@ -67,12 +67,12 @@
 
 - (NSArray *)otherButtonTitles
 {
-	return _buttonTitles;
+	return __buttonTitles;
 }
 
 - (NSUInteger)numberOfButtons
 {
-	NSUInteger count = _buttonTitles.count;
+	NSUInteger count = __buttonTitles.count;
 	if ( _destructiveButtonTitle ) count++;
 	if ( _cancelButtonTitle ) count++;
 	return count;
@@ -80,7 +80,7 @@
 
 - (NSUInteger)numberOfOtherButtons
 {
-	return _buttonTitles.count;
+	return __buttonTitles.count;
 }
 
 - (BOOL)isVisible
@@ -99,12 +99,12 @@
 	}
 	
 	// If the title already exists, change it's position and update it's selector
-	if ( [_actionsForButtonTitles objectForKey:title] ) {
-		[_buttonTitles removeObjectIdenticalTo:title];
+	if ( [__actionsForButtonTitles objectForKey:title] ) {
+		[__buttonTitles removeObjectIdenticalTo:title];
 	}
 	
-	[_buttonTitles addObject:title];
-	[_actionsForButtonTitles setObject:NSStringFromSelector(selector)
+	[__buttonTitles addObject:title];
+	[__actionsForButtonTitles setObject:NSStringFromSelector(selector)
 								forKey:title];
 }
 
@@ -116,12 +116,12 @@
 	}
 	
 	// If the title already exists, change it's position and update it's selector
-	if ( [_actionsForButtonTitles objectForKey:title] ) {
-		[_buttonTitles removeObjectIdenticalTo:title];
+	if ( [__actionsForButtonTitles objectForKey:title] ) {
+		[__buttonTitles removeObjectIdenticalTo:title];
 	}
 	
-	[_buttonTitles addObject:title];
-	[_actionsForButtonTitles setObject:block forKey:title];
+	[__buttonTitles addObject:title];
+	[__actionsForButtonTitles setObject:block forKey:title];
 }
 
 
@@ -142,7 +142,7 @@
 		_actionSheet.destructiveButtonIndex = 0;
 	}
 	
-	for ( NSString *buttonTitle in _buttonTitles ) {
+	for ( NSString *buttonTitle in __buttonTitles ) {
 		[_actionSheet addButtonWithTitle:buttonTitle];
 	}
 	
@@ -222,7 +222,7 @@
 	} else if ( [buttonTitle isEqualToString:_cancelButtonTitle] ) {
 		buttonIndex = self.numberOfButtons-1;
 	} else {
-		buttonIndex = [_buttonTitles indexOfObjectIdenticalTo:buttonTitle];
+		buttonIndex = [__buttonTitles indexOfObjectIdenticalTo:buttonTitle];
 		if ( buttonIndex == NSNotFound ) {
 			NSLog(@"No button with that title found.");
 			return;
@@ -296,9 +296,9 @@
 		return;
 	}
 	
-	NSString *buttonTitle = _buttonTitles[otherButtonIndex];
+	NSString *buttonTitle = __buttonTitles[otherButtonIndex];
 	
-	id action = _actionsForButtonTitles[buttonTitle];
+	id action = __actionsForButtonTitles[buttonTitle];
 	
 	// Selector
 	if ( [(NSObject *)action isKindOfClass:NSString.class]  ) {
