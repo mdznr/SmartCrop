@@ -22,6 +22,10 @@
 		C9FD3B58186BA7FB0063FAB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FD3B37186BA7FB0063FAB8 /* UIKit.framework */; };
 		C9FD3B60186BA7FC0063FAB8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9FD3B5E186BA7FC0063FAB8 /* InfoPlist.strings */; };
 		C9FD3B62186BA7FC0063FAB8 /* PhotoThumbnailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FD3B61186BA7FC0063FAB8 /* PhotoThumbnailTests.m */; };
+		C9FD3B75186BB17E0063FAB8 /* MTZActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FD3B6E186BB17E0063FAB8 /* MTZActionSheet.m */; };
+		C9FD3B76186BB17E0063FAB8 /* MTZAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FD3B70186BB17E0063FAB8 /* MTZAlertView.m */; };
+		C9FD3B77186BB17E0063FAB8 /* UIActionSheet+DelegateFix.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FD3B72186BB17E0063FAB8 /* UIActionSheet+DelegateFix.m */; };
+		C9FD3B78186BB17E0063FAB8 /* UIAlertView+DelegateFix.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FD3B74186BB17E0063FAB8 /* UIAlertView+DelegateFix.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,14 @@
 		C9FD3B5D186BA7FC0063FAB8 /* PhotoThumbnailTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoThumbnailTests-Info.plist"; sourceTree = "<group>"; };
 		C9FD3B5F186BA7FC0063FAB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9FD3B61186BA7FC0063FAB8 /* PhotoThumbnailTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoThumbnailTests.m; sourceTree = "<group>"; };
+		C9FD3B6D186BB17E0063FAB8 /* MTZActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZActionSheet.h; sourceTree = "<group>"; };
+		C9FD3B6E186BB17E0063FAB8 /* MTZActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZActionSheet.m; sourceTree = "<group>"; };
+		C9FD3B6F186BB17E0063FAB8 /* MTZAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZAlertView.h; sourceTree = "<group>"; };
+		C9FD3B70186BB17E0063FAB8 /* MTZAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZAlertView.m; sourceTree = "<group>"; };
+		C9FD3B71186BB17E0063FAB8 /* UIActionSheet+DelegateFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+DelegateFix.h"; sourceTree = "<group>"; };
+		C9FD3B72186BB17E0063FAB8 /* UIActionSheet+DelegateFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+DelegateFix.m"; sourceTree = "<group>"; };
+		C9FD3B73186BB17E0063FAB8 /* UIAlertView+DelegateFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+DelegateFix.h"; sourceTree = "<group>"; };
+		C9FD3B74186BB17E0063FAB8 /* UIAlertView+DelegateFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+DelegateFix.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +132,14 @@
 				C9FD3B48186BA7FB0063FAB8 /* Main_iPad.storyboard */,
 				C9FD3B4B186BA7FB0063FAB8 /* MTZViewController.h */,
 				C9FD3B4C186BA7FB0063FAB8 /* MTZViewController.m */,
+				C9FD3B6D186BB17E0063FAB8 /* MTZActionSheet.h */,
+				C9FD3B6E186BB17E0063FAB8 /* MTZActionSheet.m */,
+				C9FD3B6F186BB17E0063FAB8 /* MTZAlertView.h */,
+				C9FD3B70186BB17E0063FAB8 /* MTZAlertView.m */,
+				C9FD3B71186BB17E0063FAB8 /* UIActionSheet+DelegateFix.h */,
+				C9FD3B72186BB17E0063FAB8 /* UIActionSheet+DelegateFix.m */,
+				C9FD3B73186BB17E0063FAB8 /* UIAlertView+DelegateFix.h */,
+				C9FD3B74186BB17E0063FAB8 /* UIAlertView+DelegateFix.m */,
 				C9FD3B4E186BA7FB0063FAB8 /* Images.xcassets */,
 				C9FD3B3A186BA7FB0063FAB8 /* Supporting Files */,
 			);
@@ -254,9 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9FD3B77186BB17E0063FAB8 /* UIActionSheet+DelegateFix.m in Sources */,
 				C9FD3B44186BA7FB0063FAB8 /* MTZAppDelegate.m in Sources */,
+				C9FD3B75186BB17E0063FAB8 /* MTZActionSheet.m in Sources */,
 				C9FD3B40186BA7FB0063FAB8 /* main.m in Sources */,
+				C9FD3B78186BB17E0063FAB8 /* UIAlertView+DelegateFix.m in Sources */,
 				C9FD3B4D186BA7FB0063FAB8 /* MTZViewController.m in Sources */,
+				C9FD3B76186BB17E0063FAB8 /* MTZAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
