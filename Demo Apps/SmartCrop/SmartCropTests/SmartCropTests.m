@@ -1,18 +1,18 @@
 //
-//  PhotoThumbnailTests.m
-//  PhotoThumbnailTests
+//  SmartCropTests.m
+//  SmartCropTests
 //
-//  Created by Matt on 12/25/13.
-//  Copyright (c) 2013 Matt Zanchelli. All rights reserved.
+//  Created by Matt Zanchelli on 4/16/14.
+//  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface PhotoThumbnailTests : XCTestCase
+@interface SmartCropTests : XCTestCase
 
 @end
 
-@implementation PhotoThumbnailTests
+@implementation SmartCropTests
 
 - (void)setUp
 {

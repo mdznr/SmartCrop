@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:PhotoThumbnail.xcodeproj">
+      location = "self:SmartCrop.xcodeproj">
    </FileRef>
 </Workspace>

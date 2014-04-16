@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C9FD3B2F186BA7FB0063FAB8"
-               BuildableName = "Photos.app"
-               BlueprintName = "PhotoThumbnail"
-               ReferencedContainer = "container:PhotoThumbnail.xcodeproj">
+               BlueprintIdentifier = "C9C8B84D18FF11EB008D8E03"
+               BuildableName = "SmartCrop.app"
+               BlueprintName = "SmartCrop"
+               ReferencedContainer = "container:SmartCrop.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C9FD3B53186BA7FB0063FAB8"
-               BuildableName = "PhotoThumbnailTests.xctest"
-               BlueprintName = "PhotoThumbnailTests"
-               ReferencedContainer = "container:PhotoThumbnail.xcodeproj">
+               BlueprintIdentifier = "C9C8B87118FF11EB008D8E03"
+               BuildableName = "SmartCropTests.xctest"
+               BlueprintName = "SmartCropTests"
+               ReferencedContainer = "container:SmartCrop.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C9FD3B2F186BA7FB0063FAB8"
-            BuildableName = "Photos.app"
-            BlueprintName = "PhotoThumbnail"
-            ReferencedContainer = "container:PhotoThumbnail.xcodeproj">
+            BlueprintIdentifier = "C9C8B84D18FF11EB008D8E03"
+            BuildableName = "SmartCrop.app"
+            BlueprintName = "SmartCrop"
+            ReferencedContainer = "container:SmartCrop.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -61,10 +61,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C9FD3B2F186BA7FB0063FAB8"
-            BuildableName = "Photos.app"
-            BlueprintName = "PhotoThumbnail"
-            ReferencedContainer = "container:PhotoThumbnail.xcodeproj">
+            BlueprintIdentifier = "C9C8B84D18FF11EB008D8E03"
+            BuildableName = "SmartCrop.app"
+            BlueprintName = "SmartCrop"
+            ReferencedContainer = "container:SmartCrop.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -79,10 +79,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C9FD3B2F186BA7FB0063FAB8"
-            BuildableName = "Photos.app"
-            BlueprintName = "PhotoThumbnail"
-            ReferencedContainer = "container:PhotoThumbnail.xcodeproj">
+            BlueprintIdentifier = "C9C8B84D18FF11EB008D8E03"
+            BuildableName = "SmartCrop.app"
+            BlueprintName = "SmartCrop"
+            ReferencedContainer = "container:SmartCrop.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

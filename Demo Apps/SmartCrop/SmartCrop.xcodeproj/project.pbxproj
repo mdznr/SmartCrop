@@ -1,0 +1,551 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C9C8B85218FF11EB008D8E03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C8B85118FF11EB008D8E03 /* Foundation.framework */; };
+		C9C8B85418FF11EB008D8E03 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C8B85318FF11EB008D8E03 /* CoreGraphics.framework */; };
+		C9C8B85618FF11EB008D8E03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C8B85518FF11EB008D8E03 /* UIKit.framework */; };
+		C9C8B85C18FF11EB008D8E03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9C8B85A18FF11EB008D8E03 /* InfoPlist.strings */; };
+		C9C8B85E18FF11EB008D8E03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C8B85D18FF11EB008D8E03 /* main.m */; };
+		C9C8B86218FF11EB008D8E03 /* MTZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C8B86118FF11EB008D8E03 /* MTZAppDelegate.m */; };
+		C9C8B86518FF11EB008D8E03 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9C8B86318FF11EB008D8E03 /* Main_iPhone.storyboard */; };
+		C9C8B86818FF11EB008D8E03 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9C8B86618FF11EB008D8E03 /* Main_iPad.storyboard */; };
+		C9C8B86B18FF11EB008D8E03 /* MTZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C8B86A18FF11EB008D8E03 /* MTZViewController.m */; };
+		C9C8B86D18FF11EB008D8E03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9C8B86C18FF11EB008D8E03 /* Images.xcassets */; };
+		C9C8B87418FF11EB008D8E03 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C8B87318FF11EB008D8E03 /* XCTest.framework */; };
+		C9C8B87518FF11EB008D8E03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C8B85118FF11EB008D8E03 /* Foundation.framework */; };
+		C9C8B87618FF11EB008D8E03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C8B85518FF11EB008D8E03 /* UIKit.framework */; };
+		C9C8B87E18FF11EB008D8E03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9C8B87C18FF11EB008D8E03 /* InfoPlist.strings */; };
+		C9C8B88018FF11EB008D8E03 /* SmartCropTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C8B87F18FF11EB008D8E03 /* SmartCropTests.m */; };
+		C9C8B89218FF1776008D8E03 /* MTZActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C8B88B18FF1776008D8E03 /* MTZActionSheet.m */; };
+		C9C8B89318FF1776008D8E03 /* MTZAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C8B88D18FF1776008D8E03 /* MTZAlertView.m */; };
+		C9C8B89418FF1776008D8E03 /* UIActionSheet+DelegateFix.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C8B88F18FF1776008D8E03 /* UIActionSheet+DelegateFix.m */; };
+		C9C8B89518FF1776008D8E03 /* UIAlertView+DelegateFix.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C8B89118FF1776008D8E03 /* UIAlertView+DelegateFix.m */; };
+		C9C8B89F18FF177E008D8E03 /* CGAspectRatio.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C8B89818FF177E008D8E03 /* CGAspectRatio.m */; };
+		C9C8B8A018FF177E008D8E03 /* CGRectManipulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C8B89A18FF177E008D8E03 /* CGRectManipulation.m */; };
+		C9C8B8A118FF177E008D8E03 /* UIImage+AppropriateCrop.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C8B89C18FF177E008D8E03 /* UIImage+AppropriateCrop.m */; };
+		C9C8B8A218FF177E008D8E03 /* UIImage+Crop.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C8B89E18FF177E008D8E03 /* UIImage+Crop.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C9C8B87718FF11EB008D8E03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9C8B84618FF11EB008D8E03 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9C8B84D18FF11EB008D8E03;
+			remoteInfo = SmartCrop;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C9C8B84E18FF11EB008D8E03 /* SmartCrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9C8B85118FF11EB008D8E03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C9C8B85318FF11EB008D8E03 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C9C8B85518FF11EB008D8E03 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C9C8B85918FF11EB008D8E03 /* SmartCrop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SmartCrop-Info.plist"; sourceTree = "<group>"; };
+		C9C8B85B18FF11EB008D8E03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C9C8B85D18FF11EB008D8E03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C9C8B85F18FF11EB008D8E03 /* SmartCrop-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmartCrop-Prefix.pch"; sourceTree = "<group>"; };
+		C9C8B86018FF11EB008D8E03 /* MTZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTZAppDelegate.h; sourceTree = "<group>"; };
+		C9C8B86118FF11EB008D8E03 /* MTZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTZAppDelegate.m; sourceTree = "<group>"; };
+		C9C8B86418FF11EB008D8E03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		C9C8B86718FF11EB008D8E03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		C9C8B86918FF11EB008D8E03 /* MTZViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTZViewController.h; sourceTree = "<group>"; };
+		C9C8B86A18FF11EB008D8E03 /* MTZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTZViewController.m; sourceTree = "<group>"; };
+		C9C8B86C18FF11EB008D8E03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C9C8B87218FF11EB008D8E03 /* SmartCropTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCropTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9C8B87318FF11EB008D8E03 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C9C8B87B18FF11EB008D8E03 /* SmartCropTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SmartCropTests-Info.plist"; sourceTree = "<group>"; };
+		C9C8B87D18FF11EB008D8E03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C9C8B87F18FF11EB008D8E03 /* SmartCropTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartCropTests.m; sourceTree = "<group>"; };
+		C9C8B88A18FF1776008D8E03 /* MTZActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZActionSheet.h; sourceTree = "<group>"; };
+		C9C8B88B18FF1776008D8E03 /* MTZActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZActionSheet.m; sourceTree = "<group>"; };
+		C9C8B88C18FF1776008D8E03 /* MTZAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZAlertView.h; sourceTree = "<group>"; };
+		C9C8B88D18FF1776008D8E03 /* MTZAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTZAlertView.m; sourceTree = "<group>"; };
+		C9C8B88E18FF1776008D8E03 /* UIActionSheet+DelegateFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+DelegateFix.h"; sourceTree = "<group>"; };
+		C9C8B88F18FF1776008D8E03 /* UIActionSheet+DelegateFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+DelegateFix.m"; sourceTree = "<group>"; };
+		C9C8B89018FF1776008D8E03 /* UIAlertView+DelegateFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+DelegateFix.h"; sourceTree = "<group>"; };
+		C9C8B89118FF1776008D8E03 /* UIAlertView+DelegateFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+DelegateFix.m"; sourceTree = "<group>"; };
+		C9C8B89718FF177E008D8E03 /* CGAspectRatio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGAspectRatio.h; sourceTree = "<group>"; };
+		C9C8B89818FF177E008D8E03 /* CGAspectRatio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGAspectRatio.m; sourceTree = "<group>"; };
+		C9C8B89918FF177E008D8E03 /* CGRectManipulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRectManipulation.h; sourceTree = "<group>"; };
+		C9C8B89A18FF177E008D8E03 /* CGRectManipulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRectManipulation.m; sourceTree = "<group>"; };
+		C9C8B89B18FF177E008D8E03 /* UIImage+AppropriateCrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AppropriateCrop.h"; sourceTree = "<group>"; };
+		C9C8B89C18FF177E008D8E03 /* UIImage+AppropriateCrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AppropriateCrop.m"; sourceTree = "<group>"; };
+		C9C8B89D18FF177E008D8E03 /* UIImage+Crop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Crop.h"; sourceTree = "<group>"; };
+		C9C8B89E18FF177E008D8E03 /* UIImage+Crop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Crop.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C9C8B84B18FF11EB008D8E03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9C8B85418FF11EB008D8E03 /* CoreGraphics.framework in Frameworks */,
+				C9C8B85618FF11EB008D8E03 /* UIKit.framework in Frameworks */,
+				C9C8B85218FF11EB008D8E03 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9C8B86F18FF11EB008D8E03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9C8B87418FF11EB008D8E03 /* XCTest.framework in Frameworks */,
+				C9C8B87618FF11EB008D8E03 /* UIKit.framework in Frameworks */,
+				C9C8B87518FF11EB008D8E03 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C9C8B84518FF11EB008D8E03 = {
+			isa = PBXGroup;
+			children = (
+				C9C8B85718FF11EB008D8E03 /* SmartCrop */,
+				C9C8B87918FF11EB008D8E03 /* SmartCropTests */,
+				C9C8B85018FF11EB008D8E03 /* Frameworks */,
+				C9C8B84F18FF11EB008D8E03 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C9C8B84F18FF11EB008D8E03 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8B84E18FF11EB008D8E03 /* SmartCrop.app */,
+				C9C8B87218FF11EB008D8E03 /* SmartCropTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9C8B85018FF11EB008D8E03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8B85118FF11EB008D8E03 /* Foundation.framework */,
+				C9C8B85318FF11EB008D8E03 /* CoreGraphics.framework */,
+				C9C8B85518FF11EB008D8E03 /* UIKit.framework */,
+				C9C8B87318FF11EB008D8E03 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9C8B85718FF11EB008D8E03 /* SmartCrop */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8B86018FF11EB008D8E03 /* MTZAppDelegate.h */,
+				C9C8B86118FF11EB008D8E03 /* MTZAppDelegate.m */,
+				C9C8B86318FF11EB008D8E03 /* Main_iPhone.storyboard */,
+				C9C8B86618FF11EB008D8E03 /* Main_iPad.storyboard */,
+				C9C8B86918FF11EB008D8E03 /* MTZViewController.h */,
+				C9C8B86A18FF11EB008D8E03 /* MTZViewController.m */,
+				C9C8B86C18FF11EB008D8E03 /* Images.xcassets */,
+				C9C8B89618FF177E008D8E03 /* Source */,
+				C9C8B88918FF1776008D8E03 /* Action Sheets and Alert Views */,
+				C9C8B85818FF11EB008D8E03 /* Supporting Files */,
+			);
+			path = SmartCrop;
+			sourceTree = "<group>";
+		};
+		C9C8B85818FF11EB008D8E03 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8B85918FF11EB008D8E03 /* SmartCrop-Info.plist */,
+				C9C8B85A18FF11EB008D8E03 /* InfoPlist.strings */,
+				C9C8B85D18FF11EB008D8E03 /* main.m */,
+				C9C8B85F18FF11EB008D8E03 /* SmartCrop-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C9C8B87918FF11EB008D8E03 /* SmartCropTests */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8B87F18FF11EB008D8E03 /* SmartCropTests.m */,
+				C9C8B87A18FF11EB008D8E03 /* Supporting Files */,
+			);
+			path = SmartCropTests;
+			sourceTree = "<group>";
+		};
+		C9C8B87A18FF11EB008D8E03 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8B87B18FF11EB008D8E03 /* SmartCropTests-Info.plist */,
+				C9C8B87C18FF11EB008D8E03 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C9C8B88918FF1776008D8E03 /* Action Sheets and Alert Views */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8B88A18FF1776008D8E03 /* MTZActionSheet.h */,
+				C9C8B88B18FF1776008D8E03 /* MTZActionSheet.m */,
+				C9C8B88C18FF1776008D8E03 /* MTZAlertView.h */,
+				C9C8B88D18FF1776008D8E03 /* MTZAlertView.m */,
+				C9C8B88E18FF1776008D8E03 /* UIActionSheet+DelegateFix.h */,
+				C9C8B88F18FF1776008D8E03 /* UIActionSheet+DelegateFix.m */,
+				C9C8B89018FF1776008D8E03 /* UIAlertView+DelegateFix.h */,
+				C9C8B89118FF1776008D8E03 /* UIAlertView+DelegateFix.m */,
+			);
+			path = "Action Sheets and Alert Views";
+			sourceTree = "<group>";
+		};
+		C9C8B89618FF177E008D8E03 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8B89718FF177E008D8E03 /* CGAspectRatio.h */,
+				C9C8B89818FF177E008D8E03 /* CGAspectRatio.m */,
+				C9C8B89918FF177E008D8E03 /* CGRectManipulation.h */,
+				C9C8B89A18FF177E008D8E03 /* CGRectManipulation.m */,
+				C9C8B89B18FF177E008D8E03 /* UIImage+AppropriateCrop.h */,
+				C9C8B89C18FF177E008D8E03 /* UIImage+AppropriateCrop.m */,
+				C9C8B89D18FF177E008D8E03 /* UIImage+Crop.h */,
+				C9C8B89E18FF177E008D8E03 /* UIImage+Crop.m */,
+			);
+			name = Source;
+			path = ../../../Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C9C8B84D18FF11EB008D8E03 /* SmartCrop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9C8B88318FF11EB008D8E03 /* Build configuration list for PBXNativeTarget "SmartCrop" */;
+			buildPhases = (
+				C9C8B84A18FF11EB008D8E03 /* Sources */,
+				C9C8B84B18FF11EB008D8E03 /* Frameworks */,
+				C9C8B84C18FF11EB008D8E03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartCrop;
+			productName = SmartCrop;
+			productReference = C9C8B84E18FF11EB008D8E03 /* SmartCrop.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C9C8B87118FF11EB008D8E03 /* SmartCropTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9C8B88618FF11EB008D8E03 /* Build configuration list for PBXNativeTarget "SmartCropTests" */;
+			buildPhases = (
+				C9C8B86E18FF11EB008D8E03 /* Sources */,
+				C9C8B86F18FF11EB008D8E03 /* Frameworks */,
+				C9C8B87018FF11EB008D8E03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C9C8B87818FF11EB008D8E03 /* PBXTargetDependency */,
+			);
+			name = SmartCropTests;
+			productName = SmartCropTests;
+			productReference = C9C8B87218FF11EB008D8E03 /* SmartCropTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C9C8B84618FF11EB008D8E03 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MTZ;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Matt Zanchelli";
+				TargetAttributes = {
+					C9C8B87118FF11EB008D8E03 = {
+						TestTargetID = C9C8B84D18FF11EB008D8E03;
+					};
+				};
+			};
+			buildConfigurationList = C9C8B84918FF11EB008D8E03 /* Build configuration list for PBXProject "SmartCrop" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C9C8B84518FF11EB008D8E03;
+			productRefGroup = C9C8B84F18FF11EB008D8E03 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C9C8B84D18FF11EB008D8E03 /* SmartCrop */,
+				C9C8B87118FF11EB008D8E03 /* SmartCropTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C9C8B84C18FF11EB008D8E03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9C8B86818FF11EB008D8E03 /* Main_iPad.storyboard in Resources */,
+				C9C8B86D18FF11EB008D8E03 /* Images.xcassets in Resources */,
+				C9C8B86518FF11EB008D8E03 /* Main_iPhone.storyboard in Resources */,
+				C9C8B85C18FF11EB008D8E03 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9C8B87018FF11EB008D8E03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9C8B87E18FF11EB008D8E03 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C9C8B84A18FF11EB008D8E03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9C8B89418FF1776008D8E03 /* UIActionSheet+DelegateFix.m in Sources */,
+				C9C8B86218FF11EB008D8E03 /* MTZAppDelegate.m in Sources */,
+				C9C8B89218FF1776008D8E03 /* MTZActionSheet.m in Sources */,
+				C9C8B8A118FF177E008D8E03 /* UIImage+AppropriateCrop.m in Sources */,
+				C9C8B8A218FF177E008D8E03 /* UIImage+Crop.m in Sources */,
+				C9C8B89F18FF177E008D8E03 /* CGAspectRatio.m in Sources */,
+				C9C8B85E18FF11EB008D8E03 /* main.m in Sources */,
+				C9C8B8A018FF177E008D8E03 /* CGRectManipulation.m in Sources */,
+				C9C8B89518FF1776008D8E03 /* UIAlertView+DelegateFix.m in Sources */,
+				C9C8B86B18FF11EB008D8E03 /* MTZViewController.m in Sources */,
+				C9C8B89318FF1776008D8E03 /* MTZAlertView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9C8B86E18FF11EB008D8E03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9C8B88018FF11EB008D8E03 /* SmartCropTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C9C8B87818FF11EB008D8E03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9C8B84D18FF11EB008D8E03 /* SmartCrop */;
+			targetProxy = C9C8B87718FF11EB008D8E03 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C9C8B85A18FF11EB008D8E03 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9C8B85B18FF11EB008D8E03 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C9C8B86318FF11EB008D8E03 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9C8B86418FF11EB008D8E03 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		C9C8B86618FF11EB008D8E03 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9C8B86718FF11EB008D8E03 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		C9C8B87C18FF11EB008D8E03 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9C8B87D18FF11EB008D8E03 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C9C8B88118FF11EB008D8E03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C9C8B88218FF11EB008D8E03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C9C8B88418FF11EB008D8E03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SmartCrop/SmartCrop-Prefix.pch";
+				INFOPLIST_FILE = "SmartCrop/SmartCrop-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C9C8B88518FF11EB008D8E03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SmartCrop/SmartCrop-Prefix.pch";
+				INFOPLIST_FILE = "SmartCrop/SmartCrop-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C9C8B88718FF11EB008D8E03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SmartCrop.app/SmartCrop";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SmartCrop/SmartCrop-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SmartCropTests/SmartCropTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C9C8B88818FF11EB008D8E03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SmartCrop.app/SmartCrop";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SmartCrop/SmartCrop-Prefix.pch";
+				INFOPLIST_FILE = "SmartCropTests/SmartCropTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C9C8B84918FF11EB008D8E03 /* Build configuration list for PBXProject "SmartCrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9C8B88118FF11EB008D8E03 /* Debug */,
+				C9C8B88218FF11EB008D8E03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9C8B88318FF11EB008D8E03 /* Build configuration list for PBXNativeTarget "SmartCrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9C8B88418FF11EB008D8E03 /* Debug */,
+				C9C8B88518FF11EB008D8E03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C9C8B88618FF11EB008D8E03 /* Build configuration list for PBXNativeTarget "SmartCropTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9C8B88718FF11EB008D8E03 /* Debug */,
+				C9C8B88818FF11EB008D8E03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C9C8B84618FF11EB008D8E03 /* Project object */;
+}

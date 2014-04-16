@@ -1,16 +1,19 @@
 //
 //  MTZViewController.m
-//  PhotoThumbnail
+//  SmartCrop
 //
-//  Created by Matt on 12/25/13.
-//  Copyright (c) 2013 Matt Zanchelli. All rights reserved.
+//  Created by Matt Zanchelli on 4/16/14.
+//  Copyright (c) 2014 Matt Zanchelli. All rights reserved.
 //
 
 #import "MTZViewController.h"
 
+#import "CGAspectRatio.h"
 #import "CGRectManipulation.h"
-#import "MTZActionSheet.h"
 #import "UIImage+AppropriateCrop.h"
+
+#import "MTZActionSheet.h"
+#import "MTZAlertView.h"
 
 @interface MTZViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -27,12 +30,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
 	
-	// Default aspect ratio
-//	_aspectRatio = CGAspectRatioZero;
+	// Default aspect ratio.
 	_aspectRatio = (CGAspectRatio){0, 0};
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+	return YES;
+}
 
 #pragma mark Change Aspect Ratio / Update Photo Thumbnail
 
@@ -46,7 +53,7 @@
 	_aspectRatio = aspectRatio;
 	
 	// Update the photo thumbnail with the new aspect ratio
-//	[self performSelectorInBackground:@selector(updatePhotoThumbnail) withObject:nil];
+	//	[self performSelectorInBackground:@selector(updatePhotoThumbnail) withObject:nil];
 	
 	// Update overlay mask with the crop region
 	[self performSelectorInBackground:@selector(updatePhotoOverlay) withObject:nil];
@@ -62,9 +69,9 @@
 	NSLog(@"%@", NSStringFromCGRect(crop) );
 	
 	dispatch_async(dispatch_get_main_queue(), ^{
-//		UIBezierPath *outer = [UIBezierPath bezierPathWithRect:CGRectInfinite];
+		//		UIBezierPath *outer = [UIBezierPath bezierPathWithRect:CGRectInfinite];
 		UIBezierPath *inner = [UIBezierPath bezierPathWithRect:crop];
-//		[outer appendPath:inner];
+		//		[outer appendPath:inner];
 		
 		CAShapeLayer *mask = [CAShapeLayer layer];
 		mask.path = inner.CGPath;
@@ -75,9 +82,9 @@
 
 - (void)updatePhotoThumbnail
 {
-/** TIME BEGIN **/ NSDate *d = [NSDate date];
+	/** TIME BEGIN **/ NSDate *d = [NSDate date];
 	UIImage *croppedImage = [_image appropriatelyCroppedImageForAspectRatio:_aspectRatio];
-/*** TIME END ***/ NSTimeInterval elapsedTime = [d timeIntervalSinceNow]; NSLog(@"%f", elapsedTime);
+	/*** TIME END ***/ NSTimeInterval elapsedTime = [d timeIntervalSinceNow]; NSLog(@"%f", elapsedTime);
 	
 	// Update image on main thread
 	dispatch_async(dispatch_get_main_queue(), ^{
@@ -106,7 +113,7 @@
 	
 	// Add buttons to action sheet
 	[as addButtonWithTitle:@"Original" andBlock:^{
-//		[self changeAspectRatio:CGAspectRatioZero];
+		//		[self changeAspectRatio:CGAspectRatioZero];
 		[self changeAspectRatio:CGAspectRatioMake(0, 0)];
 	}];
 	[as addButtonWithTitle:@"Square"   andBlock:^{
@@ -169,20 +176,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
 	[picker dismissViewControllerAnimated:YES completion:^{}];
-}
-
-
-#pragma mark UIViewController Misc.
-
-- (BOOL)prefersStatusBarHidden
-{
-	return YES;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
