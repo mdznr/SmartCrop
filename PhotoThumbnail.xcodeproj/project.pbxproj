@@ -26,6 +26,13 @@
 		C9FD3B76186BB17E0063FAB8 /* MTZAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FD3B70186BB17E0063FAB8 /* MTZAlertView.m */; };
 		C9FD3B77186BB17E0063FAB8 /* UIActionSheet+DelegateFix.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FD3B72186BB17E0063FAB8 /* UIActionSheet+DelegateFix.m */; };
 		C9FD3B78186BB17E0063FAB8 /* UIAlertView+DelegateFix.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FD3B74186BB17E0063FAB8 /* UIAlertView+DelegateFix.m */; };
+		C9FD3B7B186BC5C70063FAB8 /* UIImage+AppropriateCrop.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FD3B7A186BC5C70063FAB8 /* UIImage+AppropriateCrop.m */; };
+		C9FD3B81186BCE9F0063FAB8 /* CGAspectRatio.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FD3B80186BCE9F0063FAB8 /* CGAspectRatio.m */; };
+		C9FD3B83186C0D3E0063FAB8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FD3B82186C0D3E0063FAB8 /* ImageIO.framework */; };
+		C9FD3B86186CD9F70063FAB8 /* UIImage+Crop.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FD3B85186CD9F70063FAB8 /* UIImage+Crop.m */; };
+		C9FD3B89186CDA680063FAB8 /* CGRectManipulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FD3B88186CDA680063FAB8 /* CGRectManipulation.m */; };
+		C9FD3B8B186D13340063FAB8 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FD3B8A186D13340063FAB8 /* CoreImage.framework */; };
+		C9FD3B8D186D13B00063FAB8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FD3B8C186D13B00063FAB8 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C9FD3B30186BA7FB0063FAB8 /* PhotoThumbnail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoThumbnail.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9FD3B30186BA7FB0063FAB8 /* Photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FD3B33186BA7FB0063FAB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9FD3B35186BA7FB0063FAB8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C9FD3B37186BA7FB0063FAB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -67,6 +74,17 @@
 		C9FD3B72186BB17E0063FAB8 /* UIActionSheet+DelegateFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+DelegateFix.m"; sourceTree = "<group>"; };
 		C9FD3B73186BB17E0063FAB8 /* UIAlertView+DelegateFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+DelegateFix.h"; sourceTree = "<group>"; };
 		C9FD3B74186BB17E0063FAB8 /* UIAlertView+DelegateFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+DelegateFix.m"; sourceTree = "<group>"; };
+		C9FD3B79186BC5C70063FAB8 /* UIImage+AppropriateCrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AppropriateCrop.h"; sourceTree = "<group>"; };
+		C9FD3B7A186BC5C70063FAB8 /* UIImage+AppropriateCrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AppropriateCrop.m"; sourceTree = "<group>"; };
+		C9FD3B7F186BCE9F0063FAB8 /* CGAspectRatio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGAspectRatio.h; sourceTree = "<group>"; };
+		C9FD3B80186BCE9F0063FAB8 /* CGAspectRatio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGAspectRatio.m; sourceTree = "<group>"; };
+		C9FD3B82186C0D3E0063FAB8 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		C9FD3B84186CD9F70063FAB8 /* UIImage+Crop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Crop.h"; sourceTree = "<group>"; };
+		C9FD3B85186CD9F70063FAB8 /* UIImage+Crop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Crop.m"; sourceTree = "<group>"; };
+		C9FD3B87186CDA680063FAB8 /* CGRectManipulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRectManipulation.h; sourceTree = "<group>"; };
+		C9FD3B88186CDA680063FAB8 /* CGRectManipulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRectManipulation.m; sourceTree = "<group>"; };
+		C9FD3B8A186D13340063FAB8 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		C9FD3B8C186D13B00063FAB8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +92,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9FD3B8D186D13B00063FAB8 /* QuartzCore.framework in Frameworks */,
+				C9FD3B8B186D13340063FAB8 /* CoreImage.framework in Frameworks */,
+				C9FD3B83186C0D3E0063FAB8 /* ImageIO.framework in Frameworks */,
 				C9FD3B36186BA7FB0063FAB8 /* CoreGraphics.framework in Frameworks */,
 				C9FD3B38186BA7FB0063FAB8 /* UIKit.framework in Frameworks */,
 				C9FD3B34186BA7FB0063FAB8 /* Foundation.framework in Frameworks */,
@@ -93,6 +114,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C98A5F72186E1453004EDC76 /* Action Sheets and Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				C9FD3B6D186BB17E0063FAB8 /* MTZActionSheet.h */,
+				C9FD3B6E186BB17E0063FAB8 /* MTZActionSheet.m */,
+				C9FD3B6F186BB17E0063FAB8 /* MTZAlertView.h */,
+				C9FD3B70186BB17E0063FAB8 /* MTZAlertView.m */,
+				C9FD3B71186BB17E0063FAB8 /* UIActionSheet+DelegateFix.h */,
+				C9FD3B72186BB17E0063FAB8 /* UIActionSheet+DelegateFix.m */,
+				C9FD3B73186BB17E0063FAB8 /* UIAlertView+DelegateFix.h */,
+				C9FD3B74186BB17E0063FAB8 /* UIAlertView+DelegateFix.m */,
+			);
+			name = "Action Sheets and Alerts";
+			sourceTree = "<group>";
+		};
 		C9FD3B27186BA7FB0063FAB8 = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +142,7 @@
 		C9FD3B31186BA7FB0063FAB8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C9FD3B30186BA7FB0063FAB8 /* PhotoThumbnail.app */,
+				C9FD3B30186BA7FB0063FAB8 /* Photos.app */,
 				C9FD3B54186BA7FB0063FAB8 /* PhotoThumbnailTests.xctest */,
 			);
 			name = Products;
@@ -115,6 +151,9 @@
 		C9FD3B32186BA7FB0063FAB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9FD3B8C186D13B00063FAB8 /* QuartzCore.framework */,
+				C9FD3B8A186D13340063FAB8 /* CoreImage.framework */,
+				C9FD3B82186C0D3E0063FAB8 /* ImageIO.framework */,
 				C9FD3B33186BA7FB0063FAB8 /* Foundation.framework */,
 				C9FD3B35186BA7FB0063FAB8 /* CoreGraphics.framework */,
 				C9FD3B37186BA7FB0063FAB8 /* UIKit.framework */,
@@ -132,14 +171,15 @@
 				C9FD3B48186BA7FB0063FAB8 /* Main_iPad.storyboard */,
 				C9FD3B4B186BA7FB0063FAB8 /* MTZViewController.h */,
 				C9FD3B4C186BA7FB0063FAB8 /* MTZViewController.m */,
-				C9FD3B6D186BB17E0063FAB8 /* MTZActionSheet.h */,
-				C9FD3B6E186BB17E0063FAB8 /* MTZActionSheet.m */,
-				C9FD3B6F186BB17E0063FAB8 /* MTZAlertView.h */,
-				C9FD3B70186BB17E0063FAB8 /* MTZAlertView.m */,
-				C9FD3B71186BB17E0063FAB8 /* UIActionSheet+DelegateFix.h */,
-				C9FD3B72186BB17E0063FAB8 /* UIActionSheet+DelegateFix.m */,
-				C9FD3B73186BB17E0063FAB8 /* UIAlertView+DelegateFix.h */,
-				C9FD3B74186BB17E0063FAB8 /* UIAlertView+DelegateFix.m */,
+				C9FD3B7F186BCE9F0063FAB8 /* CGAspectRatio.h */,
+				C9FD3B80186BCE9F0063FAB8 /* CGAspectRatio.m */,
+				C9FD3B87186CDA680063FAB8 /* CGRectManipulation.h */,
+				C9FD3B88186CDA680063FAB8 /* CGRectManipulation.m */,
+				C9FD3B79186BC5C70063FAB8 /* UIImage+AppropriateCrop.h */,
+				C9FD3B7A186BC5C70063FAB8 /* UIImage+AppropriateCrop.m */,
+				C9FD3B84186CD9F70063FAB8 /* UIImage+Crop.h */,
+				C9FD3B85186CD9F70063FAB8 /* UIImage+Crop.m */,
+				C98A5F72186E1453004EDC76 /* Action Sheets and Alerts */,
 				C9FD3B4E186BA7FB0063FAB8 /* Images.xcassets */,
 				C9FD3B3A186BA7FB0063FAB8 /* Supporting Files */,
 			);
@@ -192,7 +232,7 @@
 			);
 			name = PhotoThumbnail;
 			productName = PhotoThumbnail;
-			productReference = C9FD3B30186BA7FB0063FAB8 /* PhotoThumbnail.app */;
+			productReference = C9FD3B30186BA7FB0063FAB8 /* Photos.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C9FD3B53186BA7FB0063FAB8 /* PhotoThumbnailTests */ = {
@@ -274,11 +314,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9FD3B81186BCE9F0063FAB8 /* CGAspectRatio.m in Sources */,
+				C9FD3B89186CDA680063FAB8 /* CGRectManipulation.m in Sources */,
 				C9FD3B77186BB17E0063FAB8 /* UIActionSheet+DelegateFix.m in Sources */,
 				C9FD3B44186BA7FB0063FAB8 /* MTZAppDelegate.m in Sources */,
 				C9FD3B75186BB17E0063FAB8 /* MTZActionSheet.m in Sources */,
+				C9FD3B7B186BC5C70063FAB8 /* UIImage+AppropriateCrop.m in Sources */,
 				C9FD3B40186BA7FB0063FAB8 /* main.m in Sources */,
 				C9FD3B78186BB17E0063FAB8 /* UIAlertView+DelegateFix.m in Sources */,
+				C9FD3B86186CD9F70063FAB8 /* UIImage+Crop.m in Sources */,
 				C9FD3B4D186BA7FB0063FAB8 /* MTZViewController.m in Sources */,
 				C9FD3B76186BB17E0063FAB8 /* MTZAlertView.m in Sources */,
 			);
@@ -420,7 +464,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoThumbnail/PhotoThumbnail-Prefix.pch";
 				INFOPLIST_FILE = "PhotoThumbnail/PhotoThumbnail-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Photos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -433,7 +477,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoThumbnail/PhotoThumbnail-Prefix.pch";
 				INFOPLIST_FILE = "PhotoThumbnail/PhotoThumbnail-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Photos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -499,6 +543,7 @@
 				C9FD3B67186BA7FC0063FAB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9FD3B68186BA7FC0063FAB8 /* Build configuration list for PBXNativeTarget "PhotoThumbnailTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +552,7 @@
 				C9FD3B6A186BA7FC0063FAB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
