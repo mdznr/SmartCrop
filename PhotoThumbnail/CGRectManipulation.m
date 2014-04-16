@@ -77,10 +77,14 @@ CGRect CGRectScaledRectToFitInRect(CGRect rect, CGRect inRect)
 			// Outer rect is greater
 			// Scale smaller side of inner to same side of outer
 			if ( rel1 == CGAspectRatioRelationTall ) {
-				scale = rect.size.width / inRect.size.width;
+				scale = inRect.size.width / rect.size.width;
 			} else {
-				scale = rect.size.height / inRect.size.height;
+				scale = inRect.size.height / rect.size.height;
 			}
+		} else {
+			// NSOrderedSame
+			// Equal, doesn't matter which dimension.
+			scale = inRect.size.width / rect.size.width;
 		}
 	} else {
 		// The inner and outer aspect ratios conflict
@@ -88,20 +92,25 @@ CGRect CGRectScaledRectToFitInRect(CGRect rect, CGRect inRect)
 		scaleRelation = rel1;
 		
 		if ( rel1 == CGAspectRatioRelationTall ) {
-			scale = rect.size.width / inRect.size.height;
+			scale = inRect.size.height / rect.size.height;
 		} else {
-			scale = rect.size.height / inRect.size.width;
+			scale = inRect.size.width / rect.size.width;
 		}
 	}
 	
 	CGRect newRect = CGRectScale(rect, scale);
+	
+	newRect = CGRectCenterRectInRect(newRect, inRect);
+	
 	return newRect;
 }
 
 CGRect CGRectCenterRectInRect(CGRect rect, CGRect inRect)
 {
-	CGFloat dx = inRect.size.width - rect.size.width;
-	CGFloat dy = inRect.size.height - rect.size.height;
+	CGFloat dWidth = inRect.size.width - rect.size.width;
+	CGFloat dHeight = inRect.size.height - rect.size.height;
+	CGFloat dx = inRect.origin.x - rect.origin.x + (dWidth/2);
+	CGFloat dy = inRect.origin.y - rect.origin.y + (dHeight/2);
 	CGRect newRect = CGRectOffset(rect, dx, dy);
 	return newRect;
 }
