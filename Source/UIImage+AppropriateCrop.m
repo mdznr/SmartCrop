@@ -23,27 +23,28 @@ const NSDictionary *scoringForFeatureTypes;
 
 + (void)load
 {
-	// Scoring for faces
+	// The scoring for faces.
 	CGFloat (^scoringForFace)(CGFloat) = ^CGFloat(CGFloat percentInclusion) {
 		return sqrt(percentInclusion);
 	};
 	
-	// Dictionary of feature type to scoring blocks
+	// Dictionary of feature type to scoring blocks.
 	scoringForFeatureTypes = @{CIFeatureTypeFace: scoringForFace};
 }
 
 
-#pragma mark Public API
+#pragma mark - Public API
 
 - (UIImage *)appropriatelyCroppedImageForAspectRatio:(CGAspectRatio)aspectRatio
 {
-	// Handle original aspect ratio
+	// Handle original aspect ratio.
 	if ( CGAspectRatioEqualToAspectRatio(aspectRatio, CGAspectRatioZero) ) {
 		return self;
 	}
 	
 	CGRect cropRect = [self appropriateCropRegionForAspectRatio:aspectRatio];
-	return [self croppedImageWithRect:cropRect];
+	UIImage *croppedImage = [self croppedImageWithRect:cropRect];
+	return croppedImage;
 }
 
 - (CGRect)appropriateCropRegionForAspectRatio:(CGAspectRatio)aspectRatio
@@ -62,15 +63,15 @@ const NSDictionary *scoringForFeatureTypes;
 }
 
 
-#pragma mark Private API
+#pragma mark - Private API
 
-/// An array of CIFeature containing information about bounds and type of features in an image
+/// An array of CIFeature containing information about bounds and type of features in an image.
 - (NSArray *)features
 {
 	CIImage *myImage = [[CIImage alloc] initWithCGImage:self.CGImage];
 	
-	// Create face detector
-	// Low accuracy is much faster, but still not fast enough
+	// Create the face detector.
+	// Low accuracy is much faster, but still not fast enough.
 	NSDictionary *detectorOpts = @{CIDetectorAccuracy: CIDetectorAccuracyLow};
 	CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeFace
 											  context:nil
@@ -105,7 +106,7 @@ const NSDictionary *scoringForFeatureTypes;
 	return score;
 }
 
-/// Find the largest crop size for the specified aspect ratio
+/// Find the largest crop size for the specified aspect ratio.
 #warning Test this method, will likely have to handle rounding
 - (CGSize)largestCropSizeForAspectRatio:(CGAspectRatio)aspectRatio
 {
@@ -114,27 +115,27 @@ const NSDictionary *scoringForFeatureTypes;
 		return self.size;
 	}
 	
-	CGSize size;
-	
 	// The crop aspect ratio.
 	aspectRatio = CGAspectRatioReduce(aspectRatio);
 	CGAspectRatioRelation cropRelation = CGAspectRatioRelationForAspectRatio(aspectRatio);
 	
 	CGFloat largerCropDimension = MAX(aspectRatio.width, aspectRatio.height);
 	
-	// The image aspect ratio
+	// The image aspect ratio.
 	CGAspectRatio imageRatio = CGAspectRatioMake(self.size.width, self.size.height);
 	CGAspectRatioRelation imageRelation = CGAspectRatioRelationForAspectRatio(imageRatio);
 	
+	CGSize size;
+	
 	if ( cropRelation == imageRelation ) {
-		// Aspect ratios in agreement
-		// Scale larger dimension of crop to fit larger dimension of image
+		// Aspect ratios in agreement.
+		// Scale larger dimension of crop to fit larger dimension of image.
 		CGFloat largerImageDimension = MAX(self.size.width, self.size.height);
 		CGFloat scale = largerImageDimension / largerCropDimension;
 		size = CGSizeMake(aspectRatio.width * scale, aspectRatio.height * scale);
 	} else {
-		// Aspect ratios conflict
-		// Scale larger dimension of crop to fit smaller dimension of image
+		// Aspect ratios conflict.
+		// Scale larger dimension of crop to fit smaller dimension of image.
 		CGFloat smallerImageDimension = MIN(self.size.width, self.size.height);
 		CGFloat scale = smallerImageDimension / largerCropDimension;
 		size = CGSizeMake(aspectRatio.width * scale, aspectRatio.height * scale);
@@ -147,12 +148,12 @@ const NSDictionary *scoringForFeatureTypes;
 /// Note: Assumes cropSize fits to either the height or width of the image
 - (CGRect)appropriateCropRegionForCropSize:(CGSize)cropSize
 {
-	// Determine whether needs to shift horizontally or vertically
-	// Shift in the opposite direction of longest dimension of crop
-	// Get the opposite relation by flipping size
+	// Determine whether needs to shift horizontally or vertically.
+	// Shift in the opposite direction of longest dimension of crop.
+	// Get the opposite relation by flipping size.
 	CGAspectRatioRelation shiftRelation = CGAspectRatioRelationForAspectRatio( CGAspectRatioFromSize(CGSizeMake(cropSize.height, cropSize.width)) );
 	
-	// No real relation for squares, use image relation
+	// No real relation for squares, use image relation.
 	if ( shiftRelation == CGAspectRatioRelationSquare ) {
 		shiftRelation = CGAspectRatioRelationForAspectRatio( CGAspectRatioFromSize(self.size) );
 		
@@ -164,7 +165,7 @@ const NSDictionary *scoringForFeatureTypes;
 	
 	NSArray *features = [self features];
 	
-	// No features
+	// There are no features.
 	if ( features.count == 0 ) {
 #warning where to crop for no features? Middle?
 		NSLog(@"No features found");
@@ -180,27 +181,27 @@ const NSDictionary *scoringForFeatureTypes;
 		// Only account for some features
 		CGFloat (^scoringBlock)(CGFloat) = [scoringForFeatureTypes valueForKey:feature.type];
 		if ( scoringBlock == nil ) {
-			// Do not account for this feature
+			// Do not account for this feature.
 			continue;
 		} else {
-			// Crop to this rectangle
+			// Crop to this rectangle.
 			CGRect cropRect;
 			
 			CGRect featureBounds = feature.bounds;
 			featureBounds = flipCGRectVerticallyInRect(featureBounds, (CGRect){0, 0, self.size.width, self.size.height});
 			
-			// Handle Wide & Tall (Square not possible at this point)
+			// Handle Wide & Tall (Square not possible at this point).
 			if ( shiftRelation == CGAspectRatioRelationWide ) {
-				// Use to crop to right of feature
+				// Use to crop to right of feature.
 				CGFloat maxX = CGRectGetMaxX(featureBounds);
 				cropRect = (CGRect){maxX - cropSize.width, 0, cropSize.width, cropSize.height};
 			} else {
-				// Use to crop to bottom of feature
+				// Use to crop to bottom of feature.
 				CGFloat maxY = CGRectGetMaxY(featureBounds);
 				cropRect = (CGRect){0, maxY - cropSize.height, cropSize.width, cropSize.height};
 			}
 			
-			// Ensure crop fits
+			// Ensure crop fits.
 			cropRect = CGRectOffsetRectToFitInRect(cropRect, (CGRect){0, 0, self.size.width, self.size.height});
 			
 			CGFloat score = [self scoreForCrop:cropRect andFeatures:features];
@@ -211,10 +212,10 @@ const NSDictionary *scoringForFeatureTypes;
 		}
 	}
 	
-	// Best crop to return
+	// Best crop to return.
 	CGRect bestCrop = CGRectMake(0, 0, cropSize.width, cropSize.height);
 	
-	// Move crop right to center leftmost and rightmost features in crop
+	// Move crop right to center leftmost and rightmost features in crop.
 	if ( shiftRelation == CGAspectRatioRelationWide ) {
 		CGRect featureBounds = ((CIFeature *)features[bestCropIndex]).bounds;
 		featureBounds = flipCGRectVerticallyInRect(featureBounds, (CGRect){0, 0, self.size.width, self.size.height});
@@ -232,7 +233,7 @@ const NSDictionary *scoringForFeatureTypes;
 		bestCrop = CGRectOffsetRectToFitInRect(bestCrop, (CGRect){0, 0, self.size.width, self.size.height});
 	}
 	
-	// Move crop down to center topmost and bottommost features in crop
+	// Move crop down to center topmost and bottommost features in crop.
 	else {
 		CGRect featureBounds = ((CIFeature *)features[bestCropIndex]).bounds;
 		featureBounds = flipCGRectVerticallyInRect(featureBounds, (CGRect){0, 0, self.size.width, self.size.height});
@@ -330,9 +331,9 @@ const NSDictionary *scoringForFeatureTypes;
  */
 
 
-#pragma mark Helper Functions
+#pragma mark - Helper Functions
 
-/// Vertically flip a rectangle located within another rectangle
+/// Vertically flip a rectangle located within another rectangle.
 CGRect flipCGRectVerticallyInRect(CGRect rect, CGRect inRect)
 {
 	return CGRectMake(rect.origin.x,
