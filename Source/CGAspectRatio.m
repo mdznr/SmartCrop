@@ -8,8 +8,6 @@
 
 #import "CGAspectRatio.h"
 
-#import "NSRegularExpression+PerfectMatch.h"
-
 const CGAspectRatio CGAspectRatioZero = (CGAspectRatio){0, 0};
 
 // Implementation via [Wikipedia](https://en.wikipedia.org/wiki/Binary_GCD_algorithm#Iterative_version_in_C).
