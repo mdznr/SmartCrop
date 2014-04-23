@@ -159,30 +159,24 @@ CGAspectRatio CGAspectRatioReduce(CGAspectRatio aspectRatio)
 
 CGAspectRatio CGAspectRatioFromString(NSString *string)
 {
-	// The regular expression for the desired input format.
-	NSError *e;
-	NSRegularExpression *stringFormat = [NSRegularExpression regularExpressionWithPattern:@"^{[0-9]+(\\.[0-9]*)?, ?[0-9]+(\\.[0-9]*)?}$" options:0 error:&e];
-	
-	// Ensure the match is the whole string.
-	if ( ![stringFormat perfectlyMatchesString:string options:0] ) {
+	NSRange first = [string rangeOfString:@","];
+	if ( first.location == NSNotFound ) {
+		return CGAspectRatioZero;
+	}
+	NSString *firstNumber = [string substringWithRange:NSMakeRange(1, first.location-1)];
+#warning will `doubleValue` work well for CGFloat on all architectures?
+	CGFloat width = [firstNumber doubleValue];
+	if ( width == 0.0f ) {
 		return CGAspectRatioZero;
 	}
 	
-	// The values of width and height to be assigned.
-	CGFloat w, h;
+	NSString *secondNumber = [string substringWithRange:NSMakeRange(first.location+1, string.length-1-1-first.location)];
+	CGFloat height = [secondNumber doubleValue];
+	if ( height == 0.0f ) {
+		return CGAspectRatioZero;
+	}
 	
-	// The regular expression capturing the number values in the string.
-	NSRegularExpression *numberExpression = [NSRegularExpression regularExpressionWithPattern:@"[0-9]+(\\.[0-9]*)?" options:0 error:&e];
-	
-	NSTextCheckingResult *width = [numberExpression firstMatchInString:string options:0 range:NSMakeRange(0, string.length)];
-	NSString *widthString = [string substringWithRange:width.range];
-	w = [widthString doubleValue];
-	
-	NSTextCheckingResult *height = [numberExpression firstMatchInString:string options:0 range:NSMakeRange(width.range.location, string.length - width.range.location)];
-	NSString *heightString = [string substringWithRange:height.range];
-	h = [heightString doubleValue];
-	
-	return CGAspectRatioMake(w, h);
+	return CGAspectRatioMake(width, height);
 }
 
 NSString * NSStringFromCGAspectRatio(CGAspectRatio aspectRatio)
