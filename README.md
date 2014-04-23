@@ -1,4 +1,4 @@
 SmartCrop
 =========
 
-More intelligently crop photos.
+More intelligently crop `UIImages` for displaying in `UIImageView`.
