@@ -112,28 +112,28 @@
 	[as addButtonWithTitle:@"Original" andBlock:^{
 		[self changeAspectRatio:CGAspectRatioZero];
 	}];
-	[as addButtonWithTitle:@"Square"   andBlock:^{
+	[as addButtonWithTitle:@"Square" andBlock:^{
 		[self changeAspectRatio:CGAspectRatioMake(1, 1)];
 	}];
-	[as addButtonWithTitle:@"3 × 2"    andBlock:^{
+	[as addButtonWithTitle:@"3 × 2" andBlock:^{
 		[self changeAspectRatio:CGAspectRatioMake(3, 2)];
 	}];
-	[as addButtonWithTitle:@"3 × 5"    andBlock:^{
+	[as addButtonWithTitle:@"3 × 5" andBlock:^{
 		[self changeAspectRatio:CGAspectRatioMake(3, 5)];
 	}];
-	[as addButtonWithTitle:@"4 × 3"    andBlock:^{
+	[as addButtonWithTitle:@"4 × 3" andBlock:^{
 		[self changeAspectRatio:CGAspectRatioMake(4, 3)];
 	}];
-	[as addButtonWithTitle:@"4 × 6"    andBlock:^{
+	[as addButtonWithTitle:@"4 × 6" andBlock:^{
 		[self changeAspectRatio:CGAspectRatioMake(4, 6)];
 	}];
-	[as addButtonWithTitle:@"5 × 7"    andBlock:^{
+	[as addButtonWithTitle:@"5 × 7" andBlock:^{
 		[self changeAspectRatio:CGAspectRatioMake(5, 7)];
 	}];
-	[as addButtonWithTitle:@"8 × 10"   andBlock:^{
+	[as addButtonWithTitle:@"8 × 10" andBlock:^{
 		[self changeAspectRatio:CGAspectRatioMake(8, 10)];
 	}];
-	[as addButtonWithTitle:@"16 × 9"   andBlock:^{
+	[as addButtonWithTitle:@"16 × 9" andBlock:^{
 		[self changeAspectRatio:CGAspectRatioMake(16, 9)];
 	}];
 	

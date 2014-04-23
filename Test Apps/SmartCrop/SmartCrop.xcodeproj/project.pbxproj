@@ -536,6 +536,7 @@
 				C9C8B88518FF11EB008D8E03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9C8B88618FF11EB008D8E03 /* Build configuration list for PBXNativeTarget "SmartCropTests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +545,7 @@
 				C9C8B88818FF11EB008D8E03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
