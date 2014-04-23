@@ -8,6 +8,8 @@
 
 #import <XCTest/XCTest.h>
 
+#import "CGAspectRatio.h"
+
 @interface SmartCropTests : XCTestCase
 
 @end
@@ -26,9 +28,17 @@
     [super tearDown];
 }
 
+- (void)testCGAspectRatioFromString
+{
+	NSString *aspectRatioString = @"{2,1}";
+	CGAspectRatio aspectRatio = CGAspectRatioFromString(aspectRatioString);
+	XCTAssertEqual(aspectRatio.width, 2, @"Height is incorrect");
+	XCTAssertEqual(aspectRatio.height, 1, @"Width is incorrect");
+}
+
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+//	XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
 
 @end
