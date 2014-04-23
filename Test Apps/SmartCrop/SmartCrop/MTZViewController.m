@@ -12,9 +12,6 @@
 #import "CGRectManipulation.h"
 #import "UIImage+AppropriateCrop.h"
 
-#import "MTZActionSheet.h"
-#import "MTZAlertView.h"
-
 @interface MTZViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
@@ -113,8 +110,7 @@
 	
 	// Add buttons to action sheet
 	[as addButtonWithTitle:@"Original" andBlock:^{
-		//		[self changeAspectRatio:CGAspectRatioZero];
-		[self changeAspectRatio:CGAspectRatioMake(0, 0)];
+		[self changeAspectRatio:CGAspectRatioZero];
 	}];
 	[as addButtonWithTitle:@"Square"   andBlock:^{
 		[self changeAspectRatio:CGAspectRatioMake(1, 1)];
