@@ -8,9 +8,11 @@
 
 #import "CGAspectRatio.h"
 
+#import "NSRegularExpression+PerfectMatch.h"
+
 const CGAspectRatio CGAspectRatioZero = (CGAspectRatio){0, 0};
 
-// Implementation via Wikipedia (https://en.wikipedia.org/wiki/Binary_GCD_algorithm#Iterative_version_in_C)
+// Implementation via [Wikipedia](https://en.wikipedia.org/wiki/Binary_GCD_algorithm#Iterative_version_in_C).
 unsigned int gcd(unsigned int u, unsigned int v)
 {
 	int shift;
@@ -73,19 +75,18 @@ CFDictionaryRef CGAspectRatioCreateDictionaryRepresentation(CGAspectRatio aspect
 
 bool CGAspectRatioEqualToAspectRatio(CGAspectRatio aspectRatio1, CGAspectRatio aspectRatio2)
 {
-	// Reduce ratios
+	// Reduce ratios.
 	aspectRatio1 = CGAspectRatioReduce(aspectRatio1);
 	aspectRatio2 = CGAspectRatioReduce(aspectRatio2);
 	
-	// width and height for both must be equal
+	// The width and height for both must be equal.
 	return aspectRatio1.width  == aspectRatio2.width &&
-	       aspectRatio1.height == aspectRatio2.height;
+		   aspectRatio1.height == aspectRatio2.height;
 }
 
 NSComparisonResult CGAspectRatioComparison(CGAspectRatio aspectRatio1, CGAspectRatio aspectRatio2)
 {
-	// Only want fractions greater than 1
-	
+	// Only want fractions greater than 1.
 	CGFloat r1, r2;
 	
 	if ( aspectRatio1.width > aspectRatio1.height ) {
@@ -100,7 +101,7 @@ NSComparisonResult CGAspectRatioComparison(CGAspectRatio aspectRatio1, CGAspectR
 		r2 = aspectRatio2.height / aspectRatio2.width;
 	}
 	
-	// Return the comparison
+	// Return the comparison.
 	if ( r1 > r2 ) {
 		return NSOrderedDescending;
 	} else if ( r1 < r2 ) {
@@ -134,23 +135,31 @@ CGAspectRatio CGAspectRatioFlip(CGAspectRatio aspectRatio)
 
 CGAspectRatio CGAspectRatioReduce(CGAspectRatio aspectRatio)
 {
-	// Find greatest commond divisor
+	// Find the greatest commond divisor.
 	unsigned int GCD = gcd((unsigned int)aspectRatio.width, (unsigned int)aspectRatio.height);
 	
 	if ( GCD == 0 ) {
 		return CGAspectRatioMake(aspectRatio.width, aspectRatio.height);
 	}
 	
-	// Divide each by GCD
+	// Divide each by the GCD.
 	CGFloat w = aspectRatio.width / GCD;
 	CGFloat h = aspectRatio.height / GCD;
 	
-	// Return reduced aspect ratio
+	// Return the reduced aspect ratio.
 	return CGAspectRatioMake(w, h);
 }
 
 CGAspectRatio CGAspectRatioFromString(NSString *string)
 {
+	NSError *e;
+	NSRegularExpression *stringFormat = [NSRegularExpression regularExpressionWithPattern:@"^{[0-9]+(\\.[0-9]*)?, ?[0-9]+(\\.[0-9]*)?}$" options:0 error:&e];
+	
+	// Ensure the match is the whole string.
+	if ( ![stringFormat perfectlyMatchesString:string options:0] ) {
+		return CGAspectRatioZero;
+	}
+	
 #warning Implement CGAspectRatioFromString
 	return CGAspectRatioZero;
 }
