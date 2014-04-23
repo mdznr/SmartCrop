@@ -162,14 +162,13 @@ CGAspectRatio CGAspectRatioFromString(NSString *string)
 		return CGAspectRatioZero;
 	}
 	NSString *firstNumber = [string substringWithRange:NSMakeRange(1, first.location-1)];
-#warning will `doubleValue` work well for CGFloat on all architectures?
-	CGFloat width = [firstNumber doubleValue];
+	CGFloat width = [firstNumber floatValue];
 	if ( width == 0.0f ) {
 		return CGAspectRatioZero;
 	}
 	
 	NSString *secondNumber = [string substringWithRange:NSMakeRange(first.location+1, string.length-1-1-first.location)];
-	CGFloat height = [secondNumber doubleValue];
+	CGFloat height = [secondNumber floatValue];
 	if ( height == 0.0f ) {
 		return CGAspectRatioZero;
 	}
