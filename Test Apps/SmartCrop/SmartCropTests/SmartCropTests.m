@@ -30,10 +30,24 @@
 
 - (void)testCGAspectRatioFromString
 {
-	NSString *aspectRatioString = @"{2,1}";
-	CGAspectRatio aspectRatio = CGAspectRatioFromString(aspectRatioString);
-	XCTAssertEqual(aspectRatio.width, 2, @"Height is incorrect");
-	XCTAssertEqual(aspectRatio.height, 1, @"Width is incorrect");
+	NSString *aspectRatioString;
+	CGAspectRatio aspectRatio;
+	
+	aspectRatioString = @"{2,1}";
+	aspectRatio = CGAspectRatioFromString(aspectRatioString);
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(aspectRatio, CGAspectRatioMake(2, 1)), @"Apsect ratio not equivalent.");
+	
+	aspectRatioString = @"{2.0,1.0}";
+	aspectRatio = CGAspectRatioFromString(aspectRatioString);
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(aspectRatio, CGAspectRatioMake(2.0, 1.0)), @"Apsect ratio not equivalent.");
+	
+	aspectRatioString = @"{2.0, 1.0}";
+	aspectRatio = CGAspectRatioFromString(aspectRatioString);
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(aspectRatio, CGAspectRatioMake(2.0, 1.0)), @"Apsect ratio not equivalent.");
+	
+	aspectRatioString = @"{2.5, 1.0}";
+	aspectRatio = CGAspectRatioFromString(aspectRatioString);
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(aspectRatio, CGAspectRatioMake(2.5, 1.0)), @"Apsect ratio not equivalent.");
 }
 
 - (void)testExample
