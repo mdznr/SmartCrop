@@ -85,7 +85,7 @@ CGAspectRatio CGAspectRatioReduce(CGAspectRatio aspectRatio);
 /// @param string A string whose contents are of the form “{w, h}”, where w is the width and h is the height. The w and h values can be integer or float values. An example of a valid string is @”{16.0,9.0}”. The string is not localized, so items are always separated with a comma.
 /// @return A Core Graphics structure that represents an aspect ratio. If the string is not well-formed, the function returns @c CGAspectRatioZero.
 /// @discussion In general, you should use this function only to convert strings that were previously created using the NSStringFromCGAspectRatio function.
-CGAspectRatio CGAspectRatioFromString (NSString *string);
+CGAspectRatio CGAspectRatioFromString(NSString *string);
 
 /// Returns a string formatted to contain the data from an aspect ratio data structure.
 /// @param aspectRatio A Core Graphics structure representing an aspect ratio.
