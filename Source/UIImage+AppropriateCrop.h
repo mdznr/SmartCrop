@@ -12,25 +12,19 @@
 
 @interface UIImage (AppropriateCrop)
 
-#warning Rename methods to more closely match each other?
-// Consider method name of `appropriateCropForAspectRatio:` or
-// changing method name to `appropriatelyCroppedThumbnailOfSize:`
-
-#warning TODO: Full Method Documentation
-
-/// Returns an image that's an appropriately cropped version of the receiver at the specified aspect ratio
-/// @param aspectRatio
-/// @return
+/// Returns an image that's an appropriately cropped version of the receiver at the specified aspect ratio.
+/// @param aspectRatio The aspect ratio to crop the image to.
+/// @return A new instance of @c UIImage that is an appropriately cropped version of the receiver.
 - (UIImage *)appropriatelyCroppedImageForAspectRatio:(CGAspectRatio)aspectRatio NS_AVAILABLE_IOS(5_0);
 
-/// Get the rectangle for the best crop for the specified aspect ratio
-/// @param aspectRatio
-/// @return
+/// Get the rectangle for the best crop for the specified aspect ratio.
+/// @param aspectRatio The aspect ratio for the crop region.
+/// @return A core graphics rectangle structure representing an appropriate crop region of the image for the specified aspect ratio.
 - (CGRect)appropriateCropRegionForAspectRatio:(CGAspectRatio)aspectRatio NS_AVAILABLE_IOS(5_0);
 
-/// Automatically gets aspect ratio and scales down to size (points)
-/// @param thumbnailSize
-/// @return
+/// Crop and resize image for use at a specific thumbnail size.
+/// @param thumbnailSize The size (and consequently the aspect ratio) dictating the size of the returned image.
+/// @return A new instance of @c UIImage that is an appropriately cropped and sized version of the receiver.
 - (UIImage *)appropriateThumbnailOfSize:(CGSize)thumbnailSize NS_AVAILABLE_IOS(5_0);
 
 @end
