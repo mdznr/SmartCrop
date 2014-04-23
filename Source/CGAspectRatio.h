@@ -30,8 +30,9 @@ typedef NS_ENUM(NSInteger, CGAspectRatioRelation) {
 /// @return A CGAspectRatioRelation describing the relation of the given aspect ratio.
 CGAspectRatioRelation CGAspectRatioRelationForAspectRatio(CGAspectRatio aspectRatio);
 
-// Original aspect ratio
-//const CGAspectRatio CGAspectRatioZero = (CGAspectRatio) {0, 0};
+///	The "zero" ratio -- equivalent to CGAspectRatioMake(0, 0).
+/// This constant is used to represent the original apsect ratio of something.
+const CGAspectRatio CGAspectRatioZero;
 
 /// Returns a dictionary representation of the specified aspect ratio.
 /// @param aspectratio An aspect ratio.
@@ -82,7 +83,7 @@ CGAspectRatio CGAspectRatioReduce(CGAspectRatio aspectRatio);
 
 /// Returns a Core Graphics aspect ratio structure corresponding to the data in a given string.
 /// @param string A string whose contents are of the form “{w, h}”, where w is the width and h is the height. The w and h values can be integer or float values. An example of a valid string is @”{16.0,9.0}”. The string is not localized, so items are always separated with a comma.
-/// @return A Core Graphics structure that represents an aspect ratio. If the string is not well-formed, the function returns CGAspectRatioZero.
+/// @return A Core Graphics structure that represents an aspect ratio. If the string is not well-formed, the function returns @c CGAspectRatioZero.
 /// @discussion In general, you should use this function only to convert strings that were previously created using the NSStringFromCGAspectRatio function.
 CGAspectRatio CGAspectRatioFromString (NSString *string);
 

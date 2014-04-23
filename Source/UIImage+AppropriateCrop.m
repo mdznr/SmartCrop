@@ -38,8 +38,7 @@ const NSDictionary *scoringForFeatureTypes;
 - (UIImage *)appropriatelyCroppedImageForAspectRatio:(CGAspectRatio)aspectRatio
 {
 	// Handle original aspect ratio
-	//	if ( CGAspectRatioEqualToAspectRatio(aspectRatio, CGAspectRatioZero) ) {
-	if ( CGAspectRatioEqualToAspectRatio(aspectRatio, CGAspectRatioMake(0,0)) ) {
+	if ( CGAspectRatioEqualToAspectRatio(aspectRatio, CGAspectRatioZero) ) {
 		return self;
 	}
 	
