@@ -29,8 +29,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
-	// Default aspect ratio.
-	_aspectRatio = (CGAspectRatio){0, 0};
+	// The default aspect ratio to use.
+	_aspectRatio = CGAspectRatioZero;
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -38,7 +38,7 @@
 	return YES;
 }
 
-#pragma mark Change Aspect Ratio / Update Photo Thumbnail
+#pragma mark - Change Aspect Ratio / Update Photo Thumbnail
 
 - (void)changeAspectRatio:(CGAspectRatio)aspectRatio
 {
@@ -49,10 +49,10 @@
 	
 	_aspectRatio = aspectRatio;
 	
-	// Update the photo thumbnail with the new aspect ratio
-	//	[self performSelectorInBackground:@selector(updatePhotoThumbnail) withObject:nil];
+	// Update the photo thumbnail with the new aspect ratio.
+//	[self performSelectorInBackground:@selector(updatePhotoThumbnail) withObject:nil];
 	
-	// Update overlay mask with the crop region
+	// Update the overlay mask with the crop region.
 	[self performSelectorInBackground:@selector(updatePhotoOverlay) withObject:nil];
 }
 
@@ -66,9 +66,9 @@
 	NSLog(@"%@", NSStringFromCGRect(crop) );
 	
 	dispatch_async(dispatch_get_main_queue(), ^{
-		//		UIBezierPath *outer = [UIBezierPath bezierPathWithRect:CGRectInfinite];
+//		UIBezierPath *outer = [UIBezierPath bezierPathWithRect:CGRectInfinite];
 		UIBezierPath *inner = [UIBezierPath bezierPathWithRect:crop];
-		//		[outer appendPath:inner];
+//		[outer appendPath:inner];
 		
 		CAShapeLayer *mask = [CAShapeLayer layer];
 		mask.path = inner.CGPath;
@@ -83,25 +83,25 @@
 	UIImage *croppedImage = [_image appropriatelyCroppedImageForAspectRatio:_aspectRatio];
 	/*** TIME END ***/ NSTimeInterval elapsedTime = [d timeIntervalSinceNow]; NSLog(@"%f", elapsedTime);
 	
-	// Update image on main thread
+	// Update the image on the main thread.
 	dispatch_async(dispatch_get_main_queue(), ^{
 		_imageView.image = croppedImage;
 	});
 }
 
 
-#pragma mark Toolbar Actions
+#pragma mark - Toolbar Actions
 
-// Present Image Picker View Controller
+// Present the image picker view controller.
 - (IBAction)didTapPhotosButton:(id)sender
 {
 	UIImagePickerController *imgPicker = [[UIImagePickerController alloc] init];
 	imgPicker.delegate = self;
 #warning TODO: configure picker for demo application
-	[self presentViewController:imgPicker animated:YES completion:^{}];
+	[self presentViewController:imgPicker animated:YES completion:nil];
 }
 
-// Present Action Sheet for Aspect Ratios
+// Present the action sheet for aspect ratios.
 - (IBAction)didTapActionButton:(id)sender
 {
 	// Create action sheet with title
@@ -137,41 +137,41 @@
 		[self changeAspectRatio:CGAspectRatioMake(16, 9)];
 	}];
 	
-	// Add cancel button
+	// Add a cancel button.
 	as.cancelButtonTitle = @"Cancel";
 	
-	// Show action sheet
+	// Show the action sheet.
 	[as showFromBarButtonItem:sender animated:YES];
 }
 
 
-#pragma mark UIImagePickerControllerDelgate
+#pragma mark - UIImagePickerControllerDelgate
 
 - (void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-	// Dismiss the picker view
-	[picker dismissViewControllerAnimated:YES completion:^{}];
+	// Dismiss the picker view.
+	[picker dismissViewControllerAnimated:YES completion:nil];
 	
 	UIImage *image;
 	
-	// Get edited and cropped image
+	// Get the edited and cropped image.
 	image = (UIImage *) [info objectForKey:UIImagePickerControllerEditedImage];
 	
-	// Otherwise get the original image
+	// Otherwise, get the original image.
 	if ( !image ) {
 		image = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
 	}
 	
 	_image = image;
 	
-	// Update the photo thumbnail with the new image
+	// Update the photo thumbnail with the new image.
 	[self performSelectorInBackground:@selector(updatePhotoOverlay) withObject:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-	[picker dismissViewControllerAnimated:YES completion:^{}];
+	[picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
