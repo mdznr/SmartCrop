@@ -88,15 +88,15 @@ const NSDictionary *scoringForFeatureTypes;
 	return features;
 }
 
-/// The relative score for a particular crop and set of features
+/// The relative score for a particular crop and set of features.
 - (CGFloat)scoreForCrop:(CGRect)rect andFeatures:(NSArray *)features
 {
-	// See what features are in the crop and their scores
+	// See what features are in the crop and their scores.
 	CGFloat score = 0;
 	for ( CIFeature *feature in features ) {
 #warning TODO: get percentage of feature
 		CGRect featureBounds = feature.bounds;
-		// Flip bounds
+		// Flip bounds.
 		featureBounds = flipCGRectVerticallyInRect(featureBounds, (CGRect){0, 0, self.size.width, self.size.height});
 		if ( CGRectContainsRect(rect, featureBounds) ) {
 			score++;
@@ -109,15 +109,14 @@ const NSDictionary *scoringForFeatureTypes;
 #warning Test this method, will likely have to handle rounding
 - (CGSize)largestCropSizeForAspectRatio:(CGAspectRatio)aspectRatio
 {
-	// Handle original aspect ratio
-//	if ( CGAspectRatioEqualToAspectRatio(aspectRatio, CGAspectRatioZero) ) {
-	if ( CGAspectRatioEqualToAspectRatio(aspectRatio, (CGAspectRatio){0, 0}) ) {
+	// Handle original aspect ratio.
+	if ( CGAspectRatioEqualToAspectRatio(aspectRatio, CGAspectRatioZero) ) {
 		return self.size;
 	}
 	
 	CGSize size;
 	
-	// The crop aspect ratio
+	// The crop aspect ratio.
 	aspectRatio = CGAspectRatioReduce(aspectRatio);
 	CGAspectRatioRelation cropRelation = CGAspectRatioRelationForAspectRatio(aspectRatio);
 	
