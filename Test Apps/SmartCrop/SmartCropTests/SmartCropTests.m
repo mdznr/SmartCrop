@@ -48,6 +48,10 @@
 	aspectRatioString = @"{2.5, 1.0}";
 	aspectRatio = CGAspectRatioFromString(aspectRatioString);
 	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(aspectRatio, CGAspectRatioMake(2.5, 1.0)), @"Apsect ratio not equivalent.");
+	
+	aspectRatioString = @"{2, 1.5}";
+	aspectRatio = CGAspectRatioFromString(aspectRatioString);
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(aspectRatio, CGAspectRatioMake(2, 1.5)), @"Apsect ratio not equivalent.");
 }
 
 - (void)testExample
