@@ -35,7 +35,19 @@
 
 - (void)testCGRectScale
 {
+	CGRect rect, scaledRect;
 	
+	rect = CGRectMake(0, 0, 20, 20);
+	scaledRect = CGRectScale(CGRectMake(0, 0, 10, 10), 2);
+	XCTAssertTrue(CGRectEqualToRect(scaledRect, rect), @"Scaled rect not equal to rect");
+	
+	rect = CGRectMake(20, 20, 20, 20);
+	scaledRect = CGRectScale(CGRectMake(10, 10, 10, 10), 2);
+	XCTAssertTrue(CGRectEqualToRect(scaledRect, rect), @"Scaled rect not equal to rect");
+	
+	rect = CGRectMake(-20, -20, 20, 20);
+	scaledRect = CGRectScale(CGRectMake(-10, -10, 10, 10), 2);
+	XCTAssertTrue(CGRectEqualToRect(scaledRect, rect), @"Scaled rect not equal to rect");
 }
 
 - (void)testCGRectScaledRectToFitInRect
