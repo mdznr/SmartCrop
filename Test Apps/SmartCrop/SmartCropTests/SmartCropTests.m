@@ -149,9 +149,23 @@
 	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(aspectRatio, CGAspectRatioMake(2, 1.5)), @"Apsect ratio not equivalent.");
 }
 
-- (void)testExample
+- (void)testNSStringFromCGAspectRatio
 {
-//	XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+	NSString *aspectRatioString, *returnedString;
+	aspectRatioString = @"{1,1}";
+	returnedString = NSStringFromCGAspectRatio(CGAspectRatioMake(1, 1));
+	XCTAssertTrue([aspectRatioString isEqualToString:returnedString], @"Returned string not equal to aspect ratio string.");
+	
+	aspectRatioString = @"{2,2}";
+	returnedString = NSStringFromCGAspectRatio((CGAspectRatio){2, 2});
+	XCTAssertTrue([aspectRatioString isEqualToString:returnedString], @"Returned string not equal to aspect ratio string.");
+	
+#warning this doesn't work yet
+	/*
+	aspectRatioString = @"{1.5,1.5}";
+	returnedString = NSStringFromCGAspectRatio((CGAspectRatio){1.5, 1.5});
+	XCTAssertTrue([aspectRatioString isEqualToString:returnedString], @"Returned string not equal to aspect ratio string.");
+	 */
 }
 
 @end

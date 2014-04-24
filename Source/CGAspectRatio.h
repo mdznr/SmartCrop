@@ -90,4 +90,4 @@ CGAspectRatio CGAspectRatioFromString(NSString *string);
 /// Returns a string formatted to contain the data from an aspect ratio data structure.
 /// @param aspectRatio A Core Graphics structure representing an aspect ratio.
 /// @return A string that corresponds to aspect ratio. See CGAspectRatioFromString for a discussion of the string format.
-NSString * NSStringFromCGAspectRatio(CGAspectRatio aspectRatio);
+NSString *NSStringFromCGAspectRatio(CGAspectRatio aspectRatio);
