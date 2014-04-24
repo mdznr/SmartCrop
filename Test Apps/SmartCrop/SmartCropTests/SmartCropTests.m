@@ -50,6 +50,18 @@
 	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioZero, CGAspectRatioMake(0, 0)), @"`CGAspectRatioZero` should be equal to `CGAspectRatioMake(0, 0)`");
 }
 
+- (void)testCGAspectRatioCreateDictionaryRepresentation
+{
+#warning Test once implemented.
+}
+
+- (void)testCGAspectRatioEqualToAspectRatio
+{
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioMake(1, 1), CGAspectRatioMake(1, 1)), @"Simple equality should be true.");
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioMake(2, 2), CGAspectRatioMake(2, 2)), @"Simple equality should be true.");
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioMake(2, 2), CGAspectRatioMake(1, 1)), @"Reduced ratios should be equal.");
+}
+
 - (void)testCGAspectRatioFromString
 {
 	NSString *aspectRatioString;
