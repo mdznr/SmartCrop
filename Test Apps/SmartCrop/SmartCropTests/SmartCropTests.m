@@ -28,6 +28,23 @@
     [super tearDown];
 }
 
+- (void)testCGAspectRatioRelationForAspectRatio
+{
+	CGAspectRatioRelation relation;
+	
+	relation = CGAspectRatioRelationForAspectRatio( CGAspectRatioMake(1, 1) );
+	XCTAssertTrue(relation == CGAspectRatioRelationSquare, @"1:1 should be considered square");
+	
+	relation = CGAspectRatioRelationForAspectRatio( CGAspectRatioMake(2, 2) );
+	XCTAssertTrue(relation == CGAspectRatioRelationSquare, @"2:2 should be considered square");
+	
+	relation = CGAspectRatioRelationForAspectRatio( CGAspectRatioMake(2, 1) );
+	XCTAssertTrue(relation == CGAspectRatioRelationWide, @"2:1 should be considered wide");
+	
+	relation = CGAspectRatioRelationForAspectRatio( CGAspectRatioMake(1, 2) );
+	XCTAssertTrue(relation == CGAspectRatioRelationTall, @"1:2 should be considered tall");
+}
+
 - (void)testCGAspectRatioFromString
 {
 	NSString *aspectRatioString;
