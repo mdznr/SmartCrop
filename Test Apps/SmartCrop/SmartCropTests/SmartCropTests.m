@@ -91,6 +91,14 @@
 	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioMake(1, 2), CGAspectRatioFromSize(CGSizeMake(1, 2))), @"Ratios and ratio from size should be equal.");
 }
 
+- (void)testCGAspectRatioFlip
+{
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioFlip(CGAspectRatioMake(1, 1)), CGAspectRatioMake(1, 1)), @"Ratio not flipping correctly.");
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioFlip(CGAspectRatioMake(2, 2)), CGAspectRatioMake(2, 2)), @"Ratio not flipping correctly.");
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioFlip(CGAspectRatioMake(2, 1)), CGAspectRatioMake(1, 2)), @"Ratio not flipping correctly.");
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioFlip(CGAspectRatioMake(1, 2)), CGAspectRatioMake(2, 1)), @"Ratio not flipping correctly.");
+}
+
 - (void)testCGAspectRatioFromString
 {
 	NSString *aspectRatioString;
