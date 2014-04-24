@@ -62,6 +62,14 @@
 	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioMake(2, 2), CGAspectRatioMake(1, 1)), @"Reduced ratios should be equal.");
 }
 
+- (void)testCGAspectRatioComparison
+{
+	XCTAssertEqual(CGAspectRatioComparison(CGAspectRatioMake(1, 1), CGAspectRatioMake(1, 1)), NSOrderedSame, @"Comparing the same ratio should be the same.");
+	XCTAssertEqual(CGAspectRatioComparison(CGAspectRatioMake(1, 1), CGAspectRatioMake(2, 2)), NSOrderedSame, @"Comparing the same ratio to a varation of the same should be the same.");
+	XCTAssertEqual(CGAspectRatioComparison(CGAspectRatioMake(2, 1), CGAspectRatioMake(1, 1)), NSOrderedDescending, @"Comparing a larger ratio to a lesser one should be the descending.");
+	XCTAssertEqual(CGAspectRatioComparison(CGAspectRatioMake(1, 1), CGAspectRatioMake(2, 1)), NSOrderedAscending, @"Comparing a smaller ratio to a greater one should be the descending.");
+}
+
 - (void)testCGAspectRatioFromString
 {
 	NSString *aspectRatioString;
