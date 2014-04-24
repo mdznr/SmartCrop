@@ -45,6 +45,11 @@
 	XCTAssertTrue(relation == CGAspectRatioRelationTall, @"1:2 should be considered tall");
 }
 
+- (void)testCGAspectRatioZero
+{
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioZero, CGAspectRatioMake(0, 0)), @"`CGAspectRatioZero` should be equal to `CGAspectRatioMake(0, 0)`");
+}
+
 - (void)testCGAspectRatioFromString
 {
 	NSString *aspectRatioString;
