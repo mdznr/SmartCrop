@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C98347711908D28100892080 /* CGAspectRatioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C98347701908D28100892080 /* CGAspectRatioTests.m */; };
+		C98347731908D30900892080 /* CGRectManipulationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C98347721908D30900892080 /* CGRectManipulationTests.m */; };
 		C9C8B85218FF11EB008D8E03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C8B85118FF11EB008D8E03 /* Foundation.framework */; };
 		C9C8B85418FF11EB008D8E03 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C8B85318FF11EB008D8E03 /* CoreGraphics.framework */; };
 		C9C8B85618FF11EB008D8E03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C8B85518FF11EB008D8E03 /* UIKit.framework */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		C98347701908D28100892080 /* CGAspectRatioTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGAspectRatioTests.m; sourceTree = "<group>"; };
+		C98347721908D30900892080 /* CGRectManipulationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRectManipulationTests.m; sourceTree = "<group>"; };
 		C9C8B84E18FF11EB008D8E03 /* SmartCrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C8B85118FF11EB008D8E03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9C8B85318FF11EB008D8E03 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -170,6 +172,7 @@
 			children = (
 				C9C8B87F18FF11EB008D8E03 /* SmartCropTests.m */,
 				C98347701908D28100892080 /* CGAspectRatioTests.m */,
+				C98347721908D30900892080 /* CGRectManipulationTests.m */,
 				C9C8B87A18FF11EB008D8E03 /* Supporting Files */,
 			);
 			path = SmartCropTests;
@@ -333,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9C8B88018FF11EB008D8E03 /* SmartCropTests.m in Sources */,
+				C98347731908D30900892080 /* CGRectManipulationTests.m in Sources */,
 				C98347711908D28100892080 /* CGAspectRatioTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
