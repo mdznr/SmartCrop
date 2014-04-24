@@ -70,6 +70,27 @@
 	XCTAssertEqual(CGAspectRatioComparison(CGAspectRatioMake(1, 1), CGAspectRatioMake(2, 1)), NSOrderedAscending, @"Comparing a smaller ratio to a greater one should be the descending.");
 }
 
+- (void)testCGAspectRatioMake
+{
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioMake(1, 1), (CGAspectRatio) {1, 1}), @"Ratios should be equal.");
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioMake(2, 2), (CGAspectRatio) {2, 2}), @"Ratios should be equal.");
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioMake(2, 1), (CGAspectRatio) {2, 1}), @"Ratios should be equal.");
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioMake(4, 2), (CGAspectRatio) {2, 1}), @"Reduced ratios should be equal.");
+}
+
+- (void)testCGAspectRatioMakeWithDictionaryRepresentation
+{
+#warning Test once implemented.
+}
+
+- (void)testCGAspectRatioFromSize
+{
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioMake(1, 1), CGAspectRatioFromSize(CGSizeMake(1, 1))), @"Ratios and ratio from size should be equal.");
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioMake(1, 1), CGAspectRatioFromSize(CGSizeMake(2, 2))), @"Ratios and ratio from size should be equal.");
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioMake(2, 1), CGAspectRatioFromSize(CGSizeMake(2, 1))), @"Ratios and ratio from size should be equal.");
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioMake(1, 2), CGAspectRatioFromSize(CGSizeMake(1, 2))), @"Ratios and ratio from size should be equal.");
+}
+
 - (void)testCGAspectRatioFromString
 {
 	NSString *aspectRatioString;
