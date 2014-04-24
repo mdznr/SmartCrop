@@ -99,6 +99,30 @@
 	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(CGAspectRatioFlip(CGAspectRatioMake(1, 2)), CGAspectRatioMake(2, 1)), @"Ratio not flipping correctly.");
 }
 
+- (void)testCGAspectRatioReduce
+{
+	CGAspectRatio ratio, reducedRatio;
+	
+	ratio = (CGAspectRatio) {1, 1};
+	reducedRatio = CGAspectRatioReduce((CGAspectRatio) {2, 2});
+	XCTAssertTrue(ratio.width == reducedRatio.width && ratio.height == reducedRatio.height, @"Ratio not reduced correctly.");
+	
+	ratio = (CGAspectRatio) {2, 1};
+	reducedRatio = CGAspectRatioReduce((CGAspectRatio) {4, 2});
+	XCTAssertTrue(ratio.width == reducedRatio.width && ratio.height == reducedRatio.height, @"Ratio not reduced correctly.");
+	
+	ratio = (CGAspectRatio) {1, 2};
+	reducedRatio = CGAspectRatioReduce((CGAspectRatio) {2, 4});
+	XCTAssertTrue(ratio.width == reducedRatio.width && ratio.height == reducedRatio.height, @"Ratio not reduced correctly.");
+	
+#warning this is not yet implemented.
+	/*
+	ratio = (CGAspectRatio) {1, 2};
+	reducedRatio = CGAspectRatioReduce((CGAspectRatio) {2.5, 5});
+	XCTAssertTrue(ratio.width == reducedRatio.width && ratio.height == reducedRatio.height, @"Ratio not reduced correctly.");
+	 */
+}
+
 - (void)testCGAspectRatioFromString
 {
 	NSString *aspectRatioString;

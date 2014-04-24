@@ -140,6 +140,8 @@ CGAspectRatio CGAspectRatioFlip(CGAspectRatio aspectRatio)
 
 CGAspectRatio CGAspectRatioReduce(CGAspectRatio aspectRatio)
 {
+#warning should this also multiply to get whole numbers first?
+	
 	// Find the greatest commond divisor.
 	unsigned int GCD = gcd((unsigned int)aspectRatio.width, (unsigned int)aspectRatio.height);
 	
