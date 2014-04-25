@@ -40,6 +40,10 @@
 	offsetRect = CGRectMake(10, 10, 10, 10);
 	XCTAssertTrue(CGRectEqualToRect(CGRectOffsetRectToFitInRect(rect, offsetRect), CGRectMake(15, 15, 5, 5)), @"Offset rect not equal to expected rect");
 	
+	rect = CGRectMake(5, 5, 5, 5);
+	offsetRect = CGRectMake(0, 0, 15, 15);
+	XCTAssertTrue(CGRectEqualToRect(CGRectOffsetRectToFitInRect(rect, offsetRect), rect), @"Rect should not have changed");
+	
 	rect = CGRectMake(0, 0, 20, 20);
 	offsetRect = CGRectMake(0, 0, 10, 10);
 	XCTAssertTrue(CGRectEqualToRect(CGRectOffsetRectToFitInRect(rect, offsetRect), CGRectZero), @"Rect should not be able to fit in rect");
