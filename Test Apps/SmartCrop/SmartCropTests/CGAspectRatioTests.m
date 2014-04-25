@@ -147,6 +147,10 @@
 	aspectRatioString = @"{2, 1.5}";
 	aspectRatio = CGAspectRatioFromString(aspectRatioString);
 	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(aspectRatio, CGAspectRatioMake(2, 1.5)), @"Apsect ratio not equivalent.");
+	
+	aspectRatioString = @"2, 1.5";
+	aspectRatio = CGAspectRatioFromString(aspectRatioString);
+	XCTAssertTrue(CGAspectRatioEqualToAspectRatio(aspectRatio, CGAspectRatioZero), @"Apsect ratio should be CGAspectRatioZero.");
 }
 
 - (void)testNSStringFromCGAspectRatio
