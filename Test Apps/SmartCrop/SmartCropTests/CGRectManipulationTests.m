@@ -56,6 +56,10 @@
 	rect = CGRectMake(-20, -20, 20, 20);
 	scaledRect = CGRectScale(CGRectMake(-10, -10, 10, 10), 2);
 	XCTAssertTrue(CGRectEqualToRect(scaledRect, rect), @"Scaled rect not equal to rect");
+	
+	rect = CGRectZero;
+	scaledRect = CGRectScale(CGRectMake(10, 10, 10, 10), 0);
+	XCTAssertTrue(CGRectEqualToRect(scaledRect, rect), @"Scale of 0 not equal to CGRectZero");
 }
 
 - (void)testCGRectScaledRectToFitInRect
