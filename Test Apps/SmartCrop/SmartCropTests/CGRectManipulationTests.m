@@ -30,17 +30,15 @@
 
 - (void)testCGRectOffsetRectToFitInRect
 {
-	CGRect rect, offsetRect, test;
+	CGRect rect, offsetRect;
 	
 	rect = CGRectMake(0, 0, 10, 10);
 	offsetRect = CGRectMake(10, 10, 10, 10);
-	test = CGRectOffsetRectToFitInRect(rect, offsetRect);
-	XCTAssertTrue(CGRectEqualToRect(test, CGRectMake(10, 10, 10, 10)), @"Offset rect not equal to expected rect");
+	XCTAssertTrue(CGRectEqualToRect(CGRectOffsetRectToFitInRect(rect, offsetRect), CGRectMake(10, 10, 10, 10)), @"Offset rect not equal to expected rect");
 	
 	rect = CGRectMake(15, 20, 5,	5);
 	offsetRect = CGRectMake(10, 10, 10, 10);
-	test = CGRectOffsetRectToFitInRect(rect, offsetRect);
-	XCTAssertTrue(CGRectEqualToRect(test, CGRectMake(15, 15, 5, 5)), @"Offset rect not equal to expected rect");
+	XCTAssertTrue(CGRectEqualToRect(CGRectOffsetRectToFitInRect(rect, offsetRect), CGRectMake(15, 15, 5, 5)), @"Offset rect not equal to expected rect");
 }
 
 - (void)testCGRectScale
