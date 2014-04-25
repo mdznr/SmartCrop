@@ -11,29 +11,29 @@
 
 CGRect CGRectOffsetRectToFitInRect(CGRect rect, CGRect inRect)
 {
-	// Ensure it is possible
-	CGRect tmpRect = (CGRect){inRect.origin.x, inRect.origin.y, rect.size.width, rect.size.height};
-	if ( !CGRectContainsRect(inRect, tmpRect) ) {
-		// It is not possible to fit
+	// Ensure it is possible.
+	if ( rect.size.width > inRect.size.width || rect.size.height > inRect.size.height ) {
+		// It is not possible to fit.
 		return CGRectZero;
 	}
 	
-	// Already fits, return early
+	// Already fits, return early.
 	if ( CGRectContainsRect(inRect, rect) ) {
 		return rect;
 	}
 	
-	// No offset by default
-	CGFloat dx, dy = 0;
+	// No offset by default.
+	CGFloat dx = 0;
+	CGFloat dy = 0;
 	
-	// Handle x overflow
+	// Handle x overflow.
 	if ( CGRectGetMaxX(rect) > CGRectGetMaxX(inRect) ) {
 		dx = CGRectGetMaxX(inRect) - CGRectGetMaxX(rect);
 	} else if ( CGRectGetMinX(rect) < CGRectGetMinX(inRect) ) {
 		dx = CGRectGetMinX(inRect) - CGRectGetMinX(rect);
 	}
 	
-	// Handle y overflow
+	// Handle y overflow.
 	if ( CGRectGetMaxY(rect) > CGRectGetMaxY(inRect) ) {
 		dy = CGRectGetMaxY(inRect) - CGRectGetMaxY(rect);
 	} else if ( CGRectGetMinY(rect) < CGRectGetMinY(inRect) ) {
