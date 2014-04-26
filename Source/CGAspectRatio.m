@@ -127,7 +127,7 @@ bool CGAspectRatioMakeWithDictionaryRepresentation(CFDictionaryRef dict, CGAspec
 	return NO;
 }
 
-CGAspectRatio CGAspectRatioFromSize(CGSize size)
+CGAspectRatio CGAspectRatioMakeWithSize(CGSize size)
 {
 	CGAspectRatio aspectRatio = CGAspectRatioMake(size.width, size.height);
 	return CGAspectRatioReduce(aspectRatio);

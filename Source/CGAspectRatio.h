@@ -69,7 +69,7 @@ bool CGAspectRatioMakeWithDictionaryRepresentation(CFDictionaryRef dict, CGAspec
 /// Returns an aspect ratio from the given structure size.
 /// @param size The Core Graphics size structure to convert to aspect ratio.
 /// @return A Core Graphics aspect ratio structure created from the specified size structure.
-CGAspectRatio CGAspectRatioFromSize(CGSize size);
+CGAspectRatio CGAspectRatioMakeWithSize(CGSize size);
 
 /// Returns a flipped aspect ratio from the given aspect ratio.
 /// @param aspectRatio The original aspect ratio to be flipped.
