@@ -18,7 +18,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIView *overlayView;
 @property (nonatomic) CGAspectRatio aspectRatio;
-@property (strong, nonatomic) UIImage *image;
 
 @end
 
@@ -58,10 +57,10 @@
 
 - (void)updatePhotoOverlay
 {
-	CGRect crop = [_image appropriateCropRegionForAspectRatio:_aspectRatio];
-	CGRect imageRect = (CGRect) {0, 0, _imageView.image.size.width, _imageView.image.size.height};
-	CGRect imageFrame = CGRectScaledRectToFitInRect(imageRect, _imageView.bounds);
-	imageFrame = CGRectCenterRectInRect(imageFrame, _imageView.bounds);
+	CGRect crop = [self.imageView.image appropriateCropRegionForAspectRatio:_aspectRatio];
+	CGRect imageRect = (CGRect) {0, 0, self.imageView.image.size.width, self.imageView.image.size.height};
+	CGRect imageFrame = CGRectScaledRectToFitInRect(imageRect, self.imageView.bounds);
+	imageFrame = CGRectCenterRectInRect(imageFrame, self.imageView.bounds);
 	crop = CGRectScaledRectToFitInRect(crop, imageFrame);
 	NSLog(@"%@", NSStringFromCGRect(crop) );
 	
@@ -80,12 +79,12 @@
 - (void)updatePhotoThumbnail
 {
 	/** TIME BEGIN **/ NSDate *d = [NSDate date];
-	UIImage *croppedImage = [_image appropriatelyCroppedImageForAspectRatio:_aspectRatio];
+	UIImage *croppedImage = [self.imageView.image appropriatelyCroppedImageForAspectRatio:_aspectRatio];
 	/*** TIME END ***/ NSTimeInterval elapsedTime = [d timeIntervalSinceNow]; NSLog(@"%f", elapsedTime);
 	
 	// Update the image on the main thread.
 	dispatch_async(dispatch_get_main_queue(), ^{
-		_imageView.image = croppedImage;
+		self.imageView.image = croppedImage;
 	});
 }
 
@@ -163,7 +162,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 		image = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
 	}
 	
-	_image = image;
+	self.imageView.image = image;
 	
 	// Update the photo thumbnail with the new image.
 	[self performSelectorInBackground:@selector(updatePhotoOverlay) withObject:nil];
