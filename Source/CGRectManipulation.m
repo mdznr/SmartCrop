@@ -53,10 +53,10 @@ CGRect CGRectScale(CGRect rect, CGFloat scale)
 
 CGRect CGRectScaledRectToFitInRect(CGRect rect, CGRect inRect)
 {
-	CGAspectRatio ratio1 = CGAspectRatioFromSize(rect.size);
+	CGAspectRatio ratio1 = CGAspectRatioMakeWithSize(rect.size);
 	CGAspectRatioRelation rel1 = CGAspectRatioRelationForAspectRatio(ratio1);
 	
-	CGAspectRatio ratio2 = CGAspectRatioFromSize(inRect.size);
+	CGAspectRatio ratio2 = CGAspectRatioMakeWithSize(inRect.size);
 	CGAspectRatioRelation rel2 = CGAspectRatioRelationForAspectRatio(ratio2);
 	
 	CGAspectRatioRelation scaleRelation;
