@@ -29,7 +29,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
 	
 	// The default aspect ratio to use.
-	_aspectRatio = CGAspectRatioZero;
+	self.aspectRatio = CGAspectRatioZero;
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -42,11 +42,11 @@
 - (void)changeAspectRatio:(CGAspectRatio)aspectRatio
 {
 	// Return early if value hasn't changed.
-	if ( CGAspectRatioEqualToAspectRatio(aspectRatio, _aspectRatio) ) {
+	if ( CGAspectRatioEqualToAspectRatio(aspectRatio, self.aspectRatio) ) {
 		return;
 	}
 	
-	_aspectRatio = aspectRatio;
+	self.aspectRatio = aspectRatio;
 	
 	// Update the photo thumbnail with the new aspect ratio.
 //	[self performSelectorInBackground:@selector(updatePhotoThumbnail) withObject:nil];
@@ -55,14 +55,14 @@
 	[self performSelectorInBackground:@selector(updatePhotoOverlay) withObject:nil];
 }
 
+///	Update the overlay on the photo. Meant to be done in a background thread.
 - (void)updatePhotoOverlay
 {
-	CGRect crop = [self.imageView.image appropriateCropRegionForAspectRatio:_aspectRatio];
-	CGRect imageRect = (CGRect) {0, 0, self.imageView.image.size.width, self.imageView.image.size.height};
+	CGRect crop = [self.imageView.image appropriateCropRegionForAspectRatio:self.aspectRatio];
+	CGRect imageRect = (CGRect){CGPointZero, self.imageView.image.size};
 	CGRect imageFrame = CGRectScaledRectToFitInRect(imageRect, self.imageView.bounds);
-	imageFrame = CGRectCenterRectInRect(imageFrame, self.imageView.bounds);
 	crop = CGRectScaledRectToFitInRect(crop, imageFrame);
-	NSLog(@"%@", NSStringFromCGRect(crop) );
+	NSLog(@"%@", NSStringFromCGRect(crop));
 	
 	dispatch_async(dispatch_get_main_queue(), ^{
 //		UIBezierPath *outer = [UIBezierPath bezierPathWithRect:CGRectInfinite];
@@ -72,14 +72,15 @@
 		CAShapeLayer *mask = [CAShapeLayer layer];
 		mask.path = inner.CGPath;
 		
-		_overlayView.layer.mask= mask;
+		self.overlayView.layer.mask= mask;
 	});
 }
 
+///	Update the photo's crop. Meant to be done in a background thread.
 - (void)updatePhotoThumbnail
 {
 	/** TIME BEGIN **/ NSDate *d = [NSDate date];
-	UIImage *croppedImage = [self.imageView.image appropriatelyCroppedImageForAspectRatio:_aspectRatio];
+	UIImage *croppedImage = [self.imageView.image appropriatelyCroppedImageForAspectRatio:self.aspectRatio];
 	/*** TIME END ***/ NSTimeInterval elapsedTime = [d timeIntervalSinceNow]; NSLog(@"%f", elapsedTime);
 	
 	// Update the image on the main thread.
