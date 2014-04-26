@@ -148,19 +148,46 @@ const NSDictionary *scoringForFeatureTypes;
 /// Note: Assumes @c cropSize fits to either the height or width of the image.
 - (CGRect)appropriateCropRegionForCropSize:(CGSize)cropSize
 {
-	// Determine whether needs to shift horizontally or vertically.
-	// Shift in the opposite direction of longest dimension of crop.
-	// Get the opposite relation by flipping size.
-	CGAspectRatioRelation shiftRelation = CGAspectRatioRelationForAspectRatio( CGAspectRatioFromSize(CGSizeMake(cropSize.height, cropSize.width)) );
+	// The aspect ratios of both the crop and the original image.
+	CGAspectRatio cropRatio = CGAspectRatioMakeWithSize(cropSize);
+	CGAspectRatio imageRatio = CGAspectRatioMakeWithSize(self.size);
 	
-	// No real relation for squares, use image relation.
-	if ( shiftRelation == CGAspectRatioRelationSquare ) {
-		shiftRelation = CGAspectRatioRelationForAspectRatio( CGAspectRatioFromSize(self.size) );
-		
-		// Both are squares, no option for crop.
-		if ( shiftRelation == CGAspectRatioRelationSquare ) {
-			return CGRectMakeWithSize(cropSize);
+	// The aspect ratio relations of both the crop and the original image.
+	CGAspectRatioRelation cropRelation = CGAspectRatioRelationForAspectRatio(cropRatio);
+	CGAspectRatioRelation imageRelation = CGAspectRatioRelationForAspectRatio(imageRatio);
+	
+	// The direction to shift for cropping.
+	CGAspectRatioRelation shiftRelation;
+	
+	// If the crop and image relations are the same, find which is more extreme.
+	if ( cropRelation == imageRelation ) {
+		NSComparisonResult comparison = CGAspectRatioComparison(cropRatio, imageRatio);
+		switch (comparison) {
+			// The image ratio is greater.
+			case NSOrderedAscending:
+				shiftRelation = imageRelation;
+				break;
+			// The crop ratio is greater.
+			case NSOrderedDescending:
+				shiftRelation = cropRelation;
+				break;
+			// The ratios are the same!
+			case NSOrderedSame:
+			default:
+				return CGRectMakeWithSize(cropSize);
 		}
+	} else {
+		// The shift relation is the opposite of the crop relation.
+		shiftRelation = cropRelation;
+	}
+	
+	// The shift relation is the opposite of the current maximum relation.
+	if ( shiftRelation == CGAspectRatioRelationTall ) {
+		shiftRelation = CGAspectRatioRelationWide;
+	} else if ( shiftRelation == CGAspectRatioRelationWide ) {
+		shiftRelation = CGAspectRatioRelationTall;
+	} else {
+		// If it's square, just keep it there.
 	}
 	
 	NSArray *features = [self features];
