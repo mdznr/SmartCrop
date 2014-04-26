@@ -36,3 +36,8 @@ CGRect CGRectScaledRectToFitInRect(CGRect rect, CGRect inRect);
 /// @param inRect The rectangle to center to.
 /// @return A core graphics rectangle structure that has been offsetted to center within @c inRect.
 CGRect CGRectCenterRectInRect(CGRect rect, CGRect inRect);
+
+///	Create a core graphics rectangle structure with a core graphics size structure.
+///	@param size The size of the rect.
+///	@return A rectangle with the correct size and the origin at @c CGPointZero.
+CGRect CGRectMakeWithSize(CGSize size);

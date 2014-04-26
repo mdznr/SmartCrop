@@ -114,3 +114,8 @@ CGRect CGRectCenterRectInRect(CGRect rect, CGRect inRect)
 	CGRect newRect = CGRectOffset(rect, dx, dy);
 	return newRect;
 }
+
+CGRect CGRectMakeWithSize(CGSize size)
+{
+	return (CGRect){CGPointZero, size};
+}
