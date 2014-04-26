@@ -12,12 +12,12 @@
 @implementation UIImage (Crop)
 
 
-#pragma mark Crop
+#pragma mark - Crop
 
 // Implementation with help from http://stackoverflow.com/questions/158914/cropping-a-uiimage
 - (UIImage *)croppedImageWithRect:(CGRect)rect
 {
-	// Scaling only necessary if it's not 1.0
+	// Scaling only necessary if it's not 1.0.
 	if ( self.scale != 1.0f ) {
 		rect = CGRectScale(rect, self.scale);
 	}
@@ -32,12 +32,12 @@
 }
 
 
-#pragma mark Scale
+#pragma mark - Scale
 
 - (UIImage*)scaleToSize:(CGSize)size
 {
 	return [self scaleToSize:size
-	withInterpolationQuality:kCGInterpolationDefault];	
+	withInterpolationQuality:kCGInterpolationDefault];
 }
 
 - (UIImage *)scaleToSize:(CGSize)size

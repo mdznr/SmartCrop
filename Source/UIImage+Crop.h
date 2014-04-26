@@ -14,7 +14,7 @@
  Methods for cropping and scaling images
  */
 
-#pragma mark Crop
+#pragma mark - Crop
 
 /// Create a cropped version of the receiving image object.
 /// @param rect The rectangular area to crop the receiver to.
@@ -23,7 +23,7 @@
 - (UIImage *)croppedImageWithRect:(CGRect)rect;
 
 
-#pragma mark Scale
+#pragma mark - Scale
 
 /// Create a scaled version of the receiving image object.
 /// @param size The size the image should be scaled to.

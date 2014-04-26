@@ -34,5 +34,5 @@ CGRect CGRectScaledRectToFitInRect(CGRect rect, CGRect inRect);
 /// Centers a rectangle inside another rectangle by offsetting it.
 /// @param rect The rectangle to center.
 /// @param inRect The rectangle to center to.
-/// @return A core graphics rectangle structure that has been offsetted to center within the given rectangle.
+/// @return A core graphics rectangle structure that has been offsetted to center within @c inRect.
 CGRect CGRectCenterRectInRect(CGRect rect, CGRect inRect);

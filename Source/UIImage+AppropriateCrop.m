@@ -77,10 +77,10 @@ const NSDictionary *scoringForFeatureTypes;
 											  context:nil
 											  options:detectorOpts];
 	
-	// Get features
-	//	NSNumber *orientation = [NSNumber numberWithInt:self.imageOrientation+1];
-	//	NSDictionary *featuresOpts = @{CIDetectorImageOrientation: orientation};
-	//	NSArray *features = [detector featuresInImage:myImage options:featuresOpts];
+	// Get features.
+//	NSNumber *orientation = [NSNumber numberWithInt:self.imageOrientation+1];
+//	NSDictionary *featuresOpts = @{CIDetectorImageOrientation: orientation};
+//	NSArray *features = [detector featuresInImage:myImage options:featuresOpts];
 	
 /* TIME BEGIN *************/ NSDate *d = [NSDate date];
 	NSArray *features = [detector featuresInImage:myImage];
@@ -144,8 +144,8 @@ const NSDictionary *scoringForFeatureTypes;
 	return size;
 }
 
-/// Finds the appropriate crop regision for a particular crop size
-/// Note: Assumes cropSize fits to either the height or width of the image
+/// Finds the appropriate crop regision for a particular crop size.
+/// Note: Assumes @c cropSize fits to either the height or width of the image.
 - (CGRect)appropriateCropRegionForCropSize:(CGSize)cropSize
 {
 	// Determine whether needs to shift horizontally or vertically.
