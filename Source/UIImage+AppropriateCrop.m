@@ -98,7 +98,7 @@ const NSDictionary *scoringForFeatureTypes;
 #warning TODO: get percentage of feature
 		CGRect featureBounds = feature.bounds;
 		// Flip bounds.
-		featureBounds = flipCGRectVerticallyInRect(featureBounds, (CGRect){0, 0, self.size.width, self.size.height});
+		featureBounds = flipCGRectVerticallyInRect(featureBounds, CGRectMakeWithSize(self.size));
 		if ( CGRectContainsRect(rect, featureBounds) ) {
 			score++;
 		}
@@ -159,7 +159,7 @@ const NSDictionary *scoringForFeatureTypes;
 		
 		// Both are squares, no option for crop.
 		if ( shiftRelation == CGAspectRatioRelationSquare ) {
-			return CGRectMake(0, 0, cropSize.width, cropSize.height);
+			return CGRectMakeWithSize(cropSize);
 		}
 	}
 	
@@ -169,7 +169,7 @@ const NSDictionary *scoringForFeatureTypes;
 	if ( features.count == 0 ) {
 #warning where to crop for no features? Middle?
 		NSLog(@"No features found");
-		return CGRectMake(0, 0, cropSize.width, cropSize.height);
+		return CGRectCenterRectInRect(CGRectMakeWithSize(cropSize), CGRectMakeWithSize(self.size));
 	}
 	
 	NSUInteger bestCropIndex = 0;
@@ -188,21 +188,21 @@ const NSDictionary *scoringForFeatureTypes;
 			CGRect cropRect;
 			
 			CGRect featureBounds = feature.bounds;
-			featureBounds = flipCGRectVerticallyInRect(featureBounds, (CGRect){0, 0, self.size.width, self.size.height});
+			featureBounds = flipCGRectVerticallyInRect(featureBounds, CGRectMakeWithSize(self.size));
 			
 			// Handle Wide & Tall (Square not possible at this point).
 			if ( shiftRelation == CGAspectRatioRelationWide ) {
 				// Use to crop to right of feature.
 				CGFloat maxX = CGRectGetMaxX(featureBounds);
-				cropRect = (CGRect){maxX - cropSize.width, 0, cropSize.width, cropSize.height};
+				cropRect = CGRectMake(maxX - cropSize.width, 0, cropSize.width, cropSize.height);
 			} else {
 				// Use to crop to bottom of feature.
 				CGFloat maxY = CGRectGetMaxY(featureBounds);
-				cropRect = (CGRect){0, maxY - cropSize.height, cropSize.width, cropSize.height};
+				cropRect = CGRectMake(0, maxY - cropSize.height, cropSize.width, cropSize.height);
 			}
 			
 			// Ensure crop fits.
-			cropRect = CGRectOffsetRectToFitInRect(cropRect, (CGRect){0, 0, self.size.width, self.size.height});
+			cropRect = CGRectOffsetRectToFitInRect(cropRect, CGRectMakeWithSize(self.size));
 			
 			CGFloat score = [self scoreForCrop:cropRect andFeatures:features];
 			if ( score > bestCropScore ) {
@@ -218,8 +218,8 @@ const NSDictionary *scoringForFeatureTypes;
 	// Move crop right to center leftmost and rightmost features in crop.
 	if ( shiftRelation == CGAspectRatioRelationWide ) {
 		CGRect featureBounds = ((CIFeature *)features[bestCropIndex]).bounds;
-		featureBounds = flipCGRectVerticallyInRect(featureBounds, (CGRect){0, 0, self.size.width, self.size.height});
-		CGRect initialCrop = (CGRect){CGRectGetMaxX(featureBounds) - cropSize.width, 0, cropSize.width, cropSize.height};
+		featureBounds = flipCGRectVerticallyInRect(featureBounds, CGRectMakeWithSize(self.size));
+		CGRect initialCrop = CGRectMake(CGRectGetMaxX(featureBounds) - cropSize.width, 0, cropSize.width, cropSize.height);
 		CGFloat currentLeftMostPoint = CGRectGetMinX(featureBounds);
 		CGFloat minPossibleX = CGRectGetMinX(initialCrop);
 		for ( CIFeature *feature in features ) {
@@ -230,14 +230,14 @@ const NSDictionary *scoringForFeatureTypes;
 		}
 		CGFloat delta = currentLeftMostPoint - minPossibleX;
 		bestCrop = CGRectOffset(initialCrop, delta/2, 0);
-		bestCrop = CGRectOffsetRectToFitInRect(bestCrop, (CGRect){0, 0, self.size.width, self.size.height});
+		bestCrop = CGRectOffsetRectToFitInRect(bestCrop, CGRectMakeWithSize(self.size));
 	}
 	
 	// Move crop down to center topmost and bottommost features in crop.
 	else {
 		CGRect featureBounds = ((CIFeature *)features[bestCropIndex]).bounds;
-		featureBounds = flipCGRectVerticallyInRect(featureBounds, (CGRect){0, 0, self.size.width, self.size.height});
-		CGRect initialCrop = (CGRect){0, CGRectGetMaxY(featureBounds) - cropSize.height, cropSize.width, cropSize.height};
+		featureBounds = flipCGRectVerticallyInRect(featureBounds, CGRectMakeWithSize(self.size));
+		CGRect initialCrop = CGRectMake(0, CGRectGetMaxY(featureBounds) - cropSize.height, cropSize.width, cropSize.height);
 		CGFloat currentTopMostPoint = CGRectGetMinY(featureBounds);
 		CGFloat minPossibleY = CGRectGetMinY(initialCrop);
 		for ( CIFeature *feature in features ) {
@@ -248,7 +248,7 @@ const NSDictionary *scoringForFeatureTypes;
 		}
 		CGFloat delta = currentTopMostPoint - minPossibleY;
 		bestCrop = CGRectOffset(initialCrop, 0, delta/2);
-		bestCrop = CGRectOffsetRectToFitInRect(bestCrop, (CGRect){0, 0, self.size.width, self.size.height});
+		bestCrop = CGRectOffsetRectToFitInRect(bestCrop, CGRectMakeWithSize(self.size));
 	}
 	
 	return bestCrop;
@@ -299,21 +299,21 @@ const NSDictionary *scoringForFeatureTypes;
 			CGRect cropRect;
 			
 			CGRect featureBounds = feature.bounds;
-			featureBounds = flipCGRectVerticallyInRect(featureBounds, (CGRect){0, 0, self.size.width, self.size.height});
+			featureBounds = flipCGRectVerticallyInRect(featureBounds, CGRectMakeWithSize(self.size));
 			
 			// Handle Wide & Tall (Square not possible at this point)
 			if ( shiftRelation == CGAspectRatioRelationWide ) {
 				// Use to crop to right of feature
 				CGFloat maxX = CGRectGetMaxX(featureBounds);
-				cropRect = (CGRect){maxX - cropSize.width, 0, cropSize.width, cropSize.height};
+				cropRect = CGRectMake(maxX - cropSize.width, 0, cropSize.width, cropSize.height);
 			} else {
 				// Use to crop to bottom of feature
 				CGFloat maxY = CGRectGetMaxY(featureBounds);
-				cropRect = (CGRect){0, maxY - cropSize.height, cropSize.width, cropSize.height};
+				cropRect = CGRectMake(0, maxY - cropSize.height, cropSize.width, cropSize.height);
 			}
 			
 			// Ensure crop fits
-			cropRect = CGRectOffsetRectToFitInRect(cropRect, (CGRect){0, 0, self.size.width, self.size.height});
+			cropRect = CGRectOffsetRectToFitInRect(cropRect, CGRectMakeWithSize(self.size));
 			
 			CGFloat score = [self scoreForCrop:cropRect andFeatures:features];
 			if ( score > bestCropScore ) {
@@ -324,7 +324,7 @@ const NSDictionary *scoringForFeatureTypes;
 	}
 	
 	CGRect featureBounds = ((CIFeature *)features[bestCropIndex]).bounds;
-	featureBounds = flipCGRectVerticallyInRect(featureBounds, (CGRect){0, 0, self.size.width, self.size.height});
+	featureBounds = flipCGRectVerticallyInRect(featureBounds, CGRectMakeWithSize(self.size));
 	
 	return featureBounds;
 }
