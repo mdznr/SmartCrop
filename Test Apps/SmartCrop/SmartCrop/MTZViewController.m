@@ -12,9 +12,12 @@
 #import "CGRectManipulation.h"
 #import "UIImage+AppropriateCrop.h"
 
+//#define USE_OVERLAY
+
 @interface MTZViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (strong, nonatomic) UIImage *image;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIView *overlayView;
 @property (nonatomic) CGAspectRatio aspectRatio;
@@ -28,6 +31,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
+#ifndef USE_OVERLAY
+	self.overlayView.hidden = YES;
+#endif
+	
 	// The default aspect ratio to use.
 	self.aspectRatio = CGAspectRatioZero;
 }
@@ -36,6 +43,13 @@
 {
 	return YES;
 }
+
+- (void)setImage:(UIImage *)image
+{
+	_image = image;
+	self.imageView.image = image;
+}
+
 
 #pragma mark - Change Aspect Ratio / Update Photo Thumbnail
 
@@ -48,18 +62,20 @@
 	
 	self.aspectRatio = aspectRatio;
 	
-	// Update the photo thumbnail with the new aspect ratio.
-//	[self performSelectorInBackground:@selector(updatePhotoThumbnail) withObject:nil];
-	
+#ifdef USE_OVERLAY
 	// Update the overlay mask with the crop region.
 	[self performSelectorInBackground:@selector(updatePhotoOverlay) withObject:nil];
+#else
+	// Update the photo thumbnail with the new aspect ratio.
+	[self performSelectorInBackground:@selector(updatePhotoThumbnail) withObject:nil];
+#endif
 }
 
 ///	Update the overlay on the photo. Meant to be done in a background thread.
 - (void)updatePhotoOverlay
 {
-	CGRect crop = [self.imageView.image appropriateCropRegionForAspectRatio:self.aspectRatio];
-	CGRect imageRect = (CGRect){CGPointZero, self.imageView.image.size};
+	CGRect crop = [self.image appropriateCropRegionForAspectRatio:self.aspectRatio];
+	CGRect imageRect = (CGRect){CGPointZero, self.image.size};
 	CGRect imageFrame = CGRectScaledRectToFitInRect(imageRect, self.imageView.bounds);
 	crop = CGRectScaledRectToFitInRect(crop, imageFrame);
 	NSLog(@"%@", NSStringFromCGRect(crop));
@@ -80,7 +96,7 @@
 - (void)updatePhotoThumbnail
 {
 	/** TIME BEGIN **/ NSDate *d = [NSDate date];
-	UIImage *croppedImage = [self.imageView.image appropriatelyCroppedImageForAspectRatio:self.aspectRatio];
+	UIImage *croppedImage = [self.image appropriatelyCroppedImageForAspectRatio:self.aspectRatio];
 	/*** TIME END ***/ NSTimeInterval elapsedTime = [d timeIntervalSinceNow]; NSLog(@"%f", elapsedTime);
 	
 	// Update the image on the main thread.
@@ -163,10 +179,15 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 		image = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
 	}
 	
-	self.imageView.image = image;
+	self.image = image;
 	
+#ifdef USE_OVERLAY
 	// Update the photo thumbnail with the new image.
 	[self performSelectorInBackground:@selector(updatePhotoOverlay) withObject:nil];
+#else
+	// Update the photo crop.
+	[self performSelectorInBackground:@selector(updatePhotoThumbnail) withObject:nil];
+#endif
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
