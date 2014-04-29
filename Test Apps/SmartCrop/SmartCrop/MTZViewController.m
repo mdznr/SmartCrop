@@ -47,7 +47,14 @@
 - (void)setImage:(UIImage *)image
 {
 	_image = image;
-	self.imageView.image = image;
+	
+#ifdef USE_OVERLAY
+	// Update the overlay mask with the crop region.
+	[self performSelectorInBackground:@selector(updatePhotoOverlay) withObject:nil];
+#else
+	// Update the photo thumbnail with the new aspect ratio.
+	[self performSelectorInBackground:@selector(updatePhotoThumbnail) withObject:nil];
+#endif
 }
 
 
