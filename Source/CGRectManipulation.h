@@ -34,8 +34,14 @@ CGRect CGRectScaledRectToFitInRect(CGRect rect, CGRect inRect);
 /// Centers a rectangle inside another rectangle by offsetting it.
 /// @param rect The rectangle to center.
 /// @param inRect The rectangle to center to.
-/// @return A core graphics rectangle structure that has been offsetted to center within @c inRect.
+/// @return A core graphics rectangle structure that has been offset to center within @c inRect.
 CGRect CGRectCenterRectInRect(CGRect rect, CGRect inRect);
+
+///	Centers a rectangle around a point.
+/// @param rect The rectangle to center.
+///	@param centerPoint The point to center the rectangle around.
+///	@return A core graphcis rectangle structure that has been offset to center around @c centerPoint.
+CGRect CGRectCenterAroundPoint(CGRect rect, CGPoint centerPoint);
 
 ///	Create a core graphics rectangle structure with a core graphics size structure.
 ///	@param size The size of the rect.

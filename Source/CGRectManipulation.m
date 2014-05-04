@@ -115,6 +115,14 @@ CGRect CGRectCenterRectInRect(CGRect rect, CGRect inRect)
 	return newRect;
 }
 
+CGRect CGRectCenterAroundPoint(CGRect rect, CGPoint centerPoint)
+{
+	return CGRectMake(centerPoint.x - rect.size.width/2,
+					  centerPoint.y - rect.size.height/2,
+					  rect.size.width,
+					  rect.size.height);
+}
+
 CGRect CGRectMakeWithSize(CGSize size)
 {
 	return (CGRect){CGPointZero, size};
